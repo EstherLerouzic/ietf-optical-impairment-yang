@@ -1,0 +1,172 @@
+module: ietf-network
+  +--rw networks
+     +--rw network* [network-id]
+        +--rw network-id            network-id
+        +--rw network-types
+        +--rw supporting-network* [network-ref]
+        |  +--rw network-ref    -> /networks/network/network-id
+        +--rw node* [node-id]
+        |  +--rw node-id                 node-id
+        |  +--rw supporting-node* [network-ref node-ref]
+        |  |  +--rw network-ref    -> ../../../supporting-network/network-ref
+        |  |  +--rw node-ref       -> /networks/network/node/node-id
+        |  +--rw nt:termination-point* [tp-id]
+        |     +--rw nt:tp-id                           tp-id
+        |     +--rw nt:supporting-termination-point* [network-ref node-ref tp-ref]
+        |        +--rw nt:network-ref    -> ../../../nw:supporting-node/network-ref
+        |        +--rw nt:node-ref       -> ../../../nw:supporting-node/node-ref
+        |        +--rw nt:tp-ref         -> /nw:networks/network[nw:network-id=current()/../network-ref]/node[nw:node-id=current()/../node-ref]/termination-point/tp-id
+        +--rw nt:link* [link-id]
+           +--rw nt:link-id            link-id
+           +--rw nt:source
+           |  +--rw nt:source-node?   -> ../../../nw:node/node-id
+           |  +--rw nt:source-tp?     -> ../../../nw:node[nw:node-id=current()/../source-node]/termination-point/tp-id
+           +--rw nt:destination
+           |  +--rw nt:dest-node?   -> ../../../nw:node/node-id
+           |  +--rw nt:dest-tp?     -> ../../../nw:node[nw:node-id=current()/../dest-node]/termination-point/tp-id
+           +--rw nt:supporting-link* [network-ref link-ref]
+              +--rw nt:network-ref    -> ../../../nw:supporting-network/network-ref
+              +--rw nt:link-ref       -> /nw:networks/network[nw:network-id=current()/../network-ref]/link/link-id
+module: gnpy-ietf-network
+  +--rw networks
+     +--rw network* [network-id]
+        +--rw network-id       network-id
+        +--rw network-types
+        |  +--rw te-topology!
+        |     +--rw optical-impairment-topology!
+        +--rw node* [node-id]
+        |  +--rw node-id              node-id
+        |  +--rw termination-point* [tp-id]
+        |  |  +--rw tp-id       tp-id
+        |  |  +--rw te-tp-id?   te-types:te-tp-id
+        |  |  +--rw te!
+        |  |     +--rw name?                             string
+        |  |     +--rw interface-switching-capability* [switching-capability encoding]
+        |  |        +--rw switching-capability    identityref
+        |  |        +--rw encoding                identityref
+        |  |        +--rw max-lsp-bandwidth* [priority]
+        |  |        |  +--rw priority        uint8
+        |  |        |  +--rw te-bandwidth
+        |  |        |     +--rw (technology)?
+        |  |        |        +--:(generic)
+        |  |        |           +--rw generic?   te-bandwidth
+        |  |        +--rw label-restrictions
+        |  |           +--rw label-restriction* [index]
+        |  |              +--rw restriction?    enumeration
+        |  |              +--rw index           uint32
+        |  |              +--rw label-start
+        |  |              |  +--rw te-label
+        |  |              |     +--rw (technology)?
+        |  |              |     |  +--:(generic)
+        |  |              |     |     +--rw generic?   rt-types:generalized-label
+        |  |              |     +--rw direction?       te-label-direction
+        |  |              +--rw label-end
+        |  |              |  +--rw te-label
+        |  |              |     +--rw (technology)?
+        |  |              |     |  +--:(generic)
+        |  |              |     |     +--rw generic?   rt-types:generalized-label
+        |  |              |     +--rw direction?       te-label-direction
+        |  |              +--rw label-step
+        |  |              |  +--rw (technology)?
+        |  |              |     +--:(generic)
+        |  |              |        +--rw generic?   int32
+        |  |              +--rw range-bitmap?   yang:hex-string
+        |  +--rw te-node-id?          te-types:te-node-id
+        |  +--rw te!
+        |     +--rw te-node-attributes
+        |        +--rw connectivity-matrices
+        |        |  +--rw connectivity-matrix* [id]
+        |        |     +--rw id      uint32
+        |        |     +--rw from
+        |        |     |  +--rw tp-ref?               -> ../../../../../../termination-point/tp-id
+        |        |     |  +--rw label-restrictions
+        |        |     |     +--rw label-restriction* [index]
+        |        |     |        +--rw restriction?    enumeration
+        |        |     |        +--rw index           uint32
+        |        |     |        +--rw label-start
+        |        |     |        |  +--rw te-label
+        |        |     |        |     +--rw (technology)?
+        |        |     |        |     |  +--:(generic)
+        |        |     |        |     |     +--rw generic?   rt-types:generalized-label
+        |        |     |        |     +--rw direction?       te-label-direction
+        |        |     |        +--rw label-end
+        |        |     |        |  +--rw te-label
+        |        |     |        |     +--rw (technology)?
+        |        |     |        |     |  +--:(generic)
+        |        |     |        |     |     +--rw generic?   rt-types:generalized-label
+        |        |     |        |     +--rw direction?       te-label-direction
+        |        |     |        +--rw label-step
+        |        |     |        |  +--rw (technology)?
+        |        |     |        |     +--:(generic)
+        |        |     |        |        +--rw generic?   int32
+        |        |     |        +--rw range-bitmap?   yang:hex-string
+        |        |     +--rw to
+        |        |        +--rw tp-ref?               -> ../../../../../../termination-point/tp-id
+        |        |        +--rw label-restrictions
+        |        |           +--rw label-restriction* [index]
+        |        |              +--rw restriction?    enumeration
+        |        |              +--rw index           uint32
+        |        |              +--rw label-start
+        |        |              |  +--rw te-label
+        |        |              |     +--rw (technology)?
+        |        |              |     |  +--:(generic)
+        |        |              |     |     +--rw generic?   rt-types:generalized-label
+        |        |              |     +--rw direction?       te-label-direction
+        |        |              +--rw label-end
+        |        |              |  +--rw te-label
+        |        |              |     +--rw (technology)?
+        |        |              |     |  +--:(generic)
+        |        |              |     |     +--rw generic?   rt-types:generalized-label
+        |        |              |     +--rw direction?       te-label-direction
+        |        |              +--rw label-step
+        |        |              |  +--rw (technology)?
+        |        |              |     +--:(generic)
+        |        |              |        +--rw generic?   int32
+        |        |              +--rw range-bitmap?   yang:hex-string
+        |        +--rw domain-id?                  uint32
+        |        +--rw is-abstract?                empty
+        |        +--rw name?                       string
+        |        +--ro geolocation
+        |        |  +--ro altitude?    int64
+        |        |  +--ro latitude?    geographic-coordinate-degree
+        |        |  +--ro longitude?   geographic-coordinate-degree
+        |        +--rw tunnel-termination-point* [tunnel-tp-id]
+        |           +--rw tunnel-tp-id                 binary
+        |           +--rw name?                        string
+        |           +--rw switching-capability?        identityref
+        |           +--rw encoding?                    identityref
+        |           +--rw inter-layer-lock-id*         uint32
+        |           +--rw protection-type?             identityref
+        |           +--rw local-link-connectivities
+        |              +--rw number-of-entries?         uint16
+        |              +--rw local-link-connectivity* [link-tp-ref]
+        |                 +--rw link-tp-ref           -> ../../../../../../termination-point/tp-id
+        |                 +--rw label-restrictions
+        |                    +--rw label-restriction* [index]
+        |                       +--rw restriction?    enumeration
+        |                       +--rw index           uint32
+        |                       +--rw label-start
+        |                       |  +--rw te-label
+        |                       |     +--rw (technology)?
+        |                       |     |  +--:(generic)
+        |                       |     |     +--rw generic?   rt-types:generalized-label
+        |                       |     +--rw direction?       te-label-direction
+        |                       +--rw label-end
+        |                       |  +--rw te-label
+        |                       |     +--rw (technology)?
+        |                       |     |  +--:(generic)
+        |                       |     |     +--rw generic?   rt-types:generalized-label
+        |                       |     +--rw direction?       te-label-direction
+        |                       +--rw label-step
+        |                       |  +--rw (technology)?
+        |                       |     +--:(generic)
+        |                       |        +--rw generic?   int32
+        |                       +--rw range-bitmap?   yang:hex-string
+        +--rw link* [link-id]
+           +--rw link-id        link-id
+           +--rw source
+           |  +--rw source-node?   -> ../../../node/node-id
+           |  +--rw source-tp?     -> ../../../node[node-id=current()/../source-node]/termination-point/tp-id
+           +--rw destination
+              +--rw dest-node?   -> ../../../node/node-id
+              +--rw dest-tp?     -> ../../../node[node-id=current()/../dest-node]/termination-point/tp-id

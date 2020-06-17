@@ -1,0 +1,2586 @@
+{
+  "@xmlns": "urn:ietf:params:xml:ns:netconf:base:1.0",
+  "networks": {
+    "@xmlns": "urn:ietf:params:xml:ns:yang:ietf-network",
+    "network": {
+      "network-id": null,
+      "network-types": {
+        "te-topology": {
+          "@xmlns": "urn:ietf:params:xml:ns:yang:ietf-te-topology",
+          "optical-impairment-topology": {
+            "@xmlns": "urn:ietf:params:xml:ns:yang:ietf-optical-impairment-topology"
+          }
+        }
+      },
+      "supporting-network": {
+        "network-ref": null
+      },
+      "node": {
+        "node-id": null,
+        "supporting-node": {
+          "network-ref": null,
+          "node-ref": null
+        },
+        "termination-point": {
+          "@xmlns": "urn:ietf:params:xml:ns:yang:ietf-network-topology",
+          "tp-id": null,
+          "supporting-termination-point": {
+            "network-ref": null,
+            "node-ref": null,
+            "tp-ref": null
+          },
+          "te-tp-id": {
+            "@xmlns": "urn:ietf:params:xml:ns:yang:ietf-te-topology"
+          },
+          "te": {
+            "@xmlns": "urn:ietf:params:xml:ns:yang:ietf-te-topology",
+            "admin-status": null,
+            "name": null,
+            "interface-switching-capability": {
+              "switching-capability": null,
+              "encoding": null,
+              "max-lsp-bandwidth": {
+                "priority": null,
+                "te-bandwidth": {
+                  "generic": null
+                }
+              }
+            },
+            "inter-domain-plug-id": null,
+            "inter-layer-lock-id": null,
+            "oper-status": null,
+            "geolocation": {
+              "altitude": null,
+              "latitude": null,
+              "longitude": null
+            }
+          }
+        },
+        "te-node-id": {
+          "@xmlns": "urn:ietf:params:xml:ns:yang:ietf-te-topology"
+        },
+        "te": {
+          "@xmlns": "urn:ietf:params:xml:ns:yang:ietf-te-topology",
+          "te-node-template": null,
+          "te-node-attributes": {
+            "admin-status": null,
+            "connectivity-matrices": {
+              "number-of-entries": null,
+              "label-restrictions": {
+                "label-restriction": {
+                  "index": null,
+                  "restriction": "inclusive",
+                  "label-start": {
+                    "te-label": {
+                      "generic": null,
+                      "direction": "forward"
+                    }
+                  },
+                  "label-end": {
+                    "te-label": {
+                      "generic": null,
+                      "direction": "forward"
+                    }
+                  },
+                  "label-step": {
+                    "generic": "1"
+                  },
+                  "range-bitmap": null
+                }
+              },
+              "is-allowed": null,
+              "underlay": {
+                "enabled": null,
+                "primary-path": {
+                  "network-ref": null,
+                  "path-element": {
+                    "path-element-id": null,
+                    "numbered-node-hop": {
+                      "node-id": null,
+                      "hop-type": "strict"
+                    },
+                    "numbered-link-hop": {
+                      "link-tp-id": null,
+                      "hop-type": "strict",
+                      "direction": "outgoing"
+                    },
+                    "unnumbered-link-hop": {
+                      "link-tp-id": null,
+                      "node-id": null,
+                      "hop-type": "strict",
+                      "direction": "outgoing"
+                    },
+                    "as-number-hop": {
+                      "as-number": null,
+                      "hop-type": "strict"
+                    },
+                    "label-hop": {
+                      "te-label": {
+                        "generic": null,
+                        "direction": "forward"
+                      }
+                    }
+                  }
+                },
+                "backup-path": {
+                  "index": null,
+                  "network-ref": null,
+                  "path-element": {
+                    "path-element-id": null,
+                    "numbered-node-hop": {
+                      "node-id": null,
+                      "hop-type": "strict"
+                    },
+                    "numbered-link-hop": {
+                      "link-tp-id": null,
+                      "hop-type": "strict",
+                      "direction": "outgoing"
+                    },
+                    "unnumbered-link-hop": {
+                      "link-tp-id": null,
+                      "node-id": null,
+                      "hop-type": "strict",
+                      "direction": "outgoing"
+                    },
+                    "as-number-hop": {
+                      "as-number": null,
+                      "hop-type": "strict"
+                    },
+                    "label-hop": {
+                      "te-label": {
+                        "generic": null,
+                        "direction": "forward"
+                      }
+                    }
+                  }
+                },
+                "protection-type": null,
+                "tunnel-termination-points": {
+                  "source": null,
+                  "destination": null
+                },
+                "tunnels": {
+                  "sharing": "true",
+                  "tunnel": {
+                    "tunnel-name": null,
+                    "sharing": null
+                  }
+                }
+              },
+              "path-constraints": {
+                "te-bandwidth": {
+                  "generic": null
+                },
+                "link-protection": "te-types:link-protection-unprotected",
+                "setup-priority": "7",
+                "hold-priority": "7",
+                "signaling-type": "te-types:path-setup-rsvp",
+                "path-metric-bounds": {
+                  "path-metric-bound": {
+                    "metric-type": null,
+                    "upper-bound": "0"
+                  }
+                },
+                "path-affinities-values": {
+                  "path-affinities-value": {
+                    "usage": null,
+                    "value": null
+                  }
+                },
+                "path-affinity-names": {
+                  "path-affinity-name": {
+                    "usage": null,
+                    "affinity-name": {
+                      "name": null
+                    }
+                  }
+                },
+                "path-srlgs-lists": {
+                  "path-srlgs-list": {
+                    "usage": null,
+                    "values": null
+                  }
+                },
+                "path-srlgs-names": {
+                  "path-srlgs-name": {
+                    "usage": null,
+                    "names": null
+                  }
+                },
+                "disjointness": null
+              },
+              "optimizations": {
+                "optimization-metric": {
+                  "metric-type": null,
+                  "weight": "1",
+                  "explicit-route-exclude-objects": {
+                    "route-object-exclude-object": {
+                      "index": null,
+                      "numbered-node-hop": {
+                        "node-id": null,
+                        "hop-type": "strict"
+                      },
+                      "numbered-link-hop": {
+                        "link-tp-id": null,
+                        "hop-type": "strict",
+                        "direction": "outgoing"
+                      },
+                      "unnumbered-link-hop": {
+                        "link-tp-id": null,
+                        "node-id": null,
+                        "hop-type": "strict",
+                        "direction": "outgoing"
+                      },
+                      "as-number-hop": {
+                        "as-number": null,
+                        "hop-type": "strict"
+                      },
+                      "label-hop": {
+                        "te-label": {
+                          "generic": null,
+                          "direction": "forward"
+                        }
+                      },
+                      "srlg": {
+                        "srlg": null
+                      }
+                    }
+                  },
+                  "explicit-route-include-objects": {
+                    "route-object-include-object": {
+                      "index": null,
+                      "numbered-node-hop": {
+                        "node-id": null,
+                        "hop-type": "strict"
+                      },
+                      "numbered-link-hop": {
+                        "link-tp-id": null,
+                        "hop-type": "strict",
+                        "direction": "outgoing"
+                      },
+                      "unnumbered-link-hop": {
+                        "link-tp-id": null,
+                        "node-id": null,
+                        "hop-type": "strict",
+                        "direction": "outgoing"
+                      },
+                      "as-number-hop": {
+                        "as-number": null,
+                        "hop-type": "strict"
+                      },
+                      "label-hop": {
+                        "te-label": {
+                          "generic": null,
+                          "direction": "forward"
+                        }
+                      }
+                    }
+                  }
+                },
+                "tiebreakers": {
+                  "tiebreaker": {
+                    "tiebreaker-type": null
+                  }
+                },
+                "objective-function": {
+                  "objective-function-type": "te-types:of-minimize-cost-path"
+                }
+              },
+              "path-properties": {
+                "path-metric": {
+                  "metric-type": null,
+                  "accumulative-value": null
+                },
+                "path-affinities-values": {
+                  "path-affinities-value": {
+                    "usage": null,
+                    "value": null
+                  }
+                },
+                "path-affinity-names": {
+                  "path-affinity-name": {
+                    "usage": null,
+                    "affinity-name": {
+                      "name": null
+                    }
+                  }
+                },
+                "path-srlgs-lists": {
+                  "path-srlgs-list": {
+                    "usage": null,
+                    "values": null
+                  }
+                },
+                "path-srlgs-names": {
+                  "path-srlgs-name": {
+                    "usage": null,
+                    "names": null
+                  }
+                },
+                "path-route-objects": {
+                  "path-route-object": {
+                    "index": null,
+                    "numbered-node-hop": {
+                      "node-id": null,
+                      "hop-type": "strict"
+                    },
+                    "numbered-link-hop": {
+                      "link-tp-id": null,
+                      "hop-type": "strict",
+                      "direction": "outgoing"
+                    },
+                    "unnumbered-link-hop": {
+                      "link-tp-id": null,
+                      "node-id": null,
+                      "hop-type": "strict",
+                      "direction": "outgoing"
+                    },
+                    "as-number-hop": {
+                      "as-number": null,
+                      "hop-type": "strict"
+                    },
+                    "label-hop": {
+                      "te-label": {
+                        "generic": null,
+                        "direction": "forward"
+                      }
+                    }
+                  }
+                }
+              },
+              "connectivity-matrix": {
+                "id": null,
+                "from": {
+                  "tp-ref": null,
+                  "label-restrictions": {
+                    "label-restriction": {
+                      "index": null,
+                      "restriction": "inclusive",
+                      "label-start": {
+                        "te-label": {
+                          "generic": null,
+                          "direction": "forward"
+                        }
+                      },
+                      "label-end": {
+                        "te-label": {
+                          "generic": null,
+                          "direction": "forward"
+                        }
+                      },
+                      "label-step": {
+                        "generic": "1"
+                      },
+                      "range-bitmap": null
+                    }
+                  }
+                },
+                "to": {
+                  "tp-ref": null,
+                  "label-restrictions": {
+                    "label-restriction": {
+                      "index": null,
+                      "restriction": "inclusive",
+                      "label-start": {
+                        "te-label": {
+                          "generic": null,
+                          "direction": "forward"
+                        }
+                      },
+                      "label-end": {
+                        "te-label": {
+                          "generic": null,
+                          "direction": "forward"
+                        }
+                      },
+                      "label-step": {
+                        "generic": "1"
+                      },
+                      "range-bitmap": null
+                    }
+                  }
+                },
+                "is-allowed": null,
+                "underlay": {
+                  "enabled": null,
+                  "primary-path": {
+                    "network-ref": null,
+                    "path-element": {
+                      "path-element-id": null,
+                      "numbered-node-hop": {
+                        "node-id": null,
+                        "hop-type": "strict"
+                      },
+                      "numbered-link-hop": {
+                        "link-tp-id": null,
+                        "hop-type": "strict",
+                        "direction": "outgoing"
+                      },
+                      "unnumbered-link-hop": {
+                        "link-tp-id": null,
+                        "node-id": null,
+                        "hop-type": "strict",
+                        "direction": "outgoing"
+                      },
+                      "as-number-hop": {
+                        "as-number": null,
+                        "hop-type": "strict"
+                      },
+                      "label-hop": {
+                        "te-label": {
+                          "generic": null,
+                          "direction": "forward"
+                        }
+                      }
+                    }
+                  },
+                  "backup-path": {
+                    "index": null,
+                    "network-ref": null,
+                    "path-element": {
+                      "path-element-id": null,
+                      "numbered-node-hop": {
+                        "node-id": null,
+                        "hop-type": "strict"
+                      },
+                      "numbered-link-hop": {
+                        "link-tp-id": null,
+                        "hop-type": "strict",
+                        "direction": "outgoing"
+                      },
+                      "unnumbered-link-hop": {
+                        "link-tp-id": null,
+                        "node-id": null,
+                        "hop-type": "strict",
+                        "direction": "outgoing"
+                      },
+                      "as-number-hop": {
+                        "as-number": null,
+                        "hop-type": "strict"
+                      },
+                      "label-hop": {
+                        "te-label": {
+                          "generic": null,
+                          "direction": "forward"
+                        }
+                      }
+                    }
+                  },
+                  "protection-type": null,
+                  "tunnel-termination-points": {
+                    "source": null,
+                    "destination": null
+                  },
+                  "tunnels": {
+                    "sharing": "true",
+                    "tunnel": {
+                      "tunnel-name": null,
+                      "sharing": null
+                    }
+                  }
+                },
+                "path-constraints": {
+                  "te-bandwidth": {
+                    "generic": null
+                  },
+                  "link-protection": "te-types:link-protection-unprotected",
+                  "setup-priority": "7",
+                  "hold-priority": "7",
+                  "signaling-type": "te-types:path-setup-rsvp",
+                  "path-metric-bounds": {
+                    "path-metric-bound": {
+                      "metric-type": null,
+                      "upper-bound": "0"
+                    }
+                  },
+                  "path-affinities-values": {
+                    "path-affinities-value": {
+                      "usage": null,
+                      "value": null
+                    }
+                  },
+                  "path-affinity-names": {
+                    "path-affinity-name": {
+                      "usage": null,
+                      "affinity-name": {
+                        "name": null
+                      }
+                    }
+                  },
+                  "path-srlgs-lists": {
+                    "path-srlgs-list": {
+                      "usage": null,
+                      "values": null
+                    }
+                  },
+                  "path-srlgs-names": {
+                    "path-srlgs-name": {
+                      "usage": null,
+                      "names": null
+                    }
+                  },
+                  "disjointness": null
+                },
+                "optimizations": {
+                  "optimization-metric": {
+                    "metric-type": null,
+                    "weight": "1",
+                    "explicit-route-exclude-objects": {
+                      "route-object-exclude-object": {
+                        "index": null,
+                        "numbered-node-hop": {
+                          "node-id": null,
+                          "hop-type": "strict"
+                        },
+                        "numbered-link-hop": {
+                          "link-tp-id": null,
+                          "hop-type": "strict",
+                          "direction": "outgoing"
+                        },
+                        "unnumbered-link-hop": {
+                          "link-tp-id": null,
+                          "node-id": null,
+                          "hop-type": "strict",
+                          "direction": "outgoing"
+                        },
+                        "as-number-hop": {
+                          "as-number": null,
+                          "hop-type": "strict"
+                        },
+                        "label-hop": {
+                          "te-label": {
+                            "generic": null,
+                            "direction": "forward"
+                          }
+                        },
+                        "srlg": {
+                          "srlg": null
+                        }
+                      }
+                    },
+                    "explicit-route-include-objects": {
+                      "route-object-include-object": {
+                        "index": null,
+                        "numbered-node-hop": {
+                          "node-id": null,
+                          "hop-type": "strict"
+                        },
+                        "numbered-link-hop": {
+                          "link-tp-id": null,
+                          "hop-type": "strict",
+                          "direction": "outgoing"
+                        },
+                        "unnumbered-link-hop": {
+                          "link-tp-id": null,
+                          "node-id": null,
+                          "hop-type": "strict",
+                          "direction": "outgoing"
+                        },
+                        "as-number-hop": {
+                          "as-number": null,
+                          "hop-type": "strict"
+                        },
+                        "label-hop": {
+                          "te-label": {
+                            "generic": null,
+                            "direction": "forward"
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "tiebreakers": {
+                    "tiebreaker": {
+                      "tiebreaker-type": null
+                    }
+                  },
+                  "objective-function": {
+                    "objective-function-type": "te-types:of-minimize-cost-path"
+                  }
+                },
+                "path-properties": {
+                  "path-metric": {
+                    "metric-type": null,
+                    "accumulative-value": null
+                  },
+                  "path-affinities-values": {
+                    "path-affinities-value": {
+                      "usage": null,
+                      "value": null
+                    }
+                  },
+                  "path-affinity-names": {
+                    "path-affinity-name": {
+                      "usage": null,
+                      "affinity-name": {
+                        "name": null
+                      }
+                    }
+                  },
+                  "path-srlgs-lists": {
+                    "path-srlgs-list": {
+                      "usage": null,
+                      "values": null
+                    }
+                  },
+                  "path-srlgs-names": {
+                    "path-srlgs-name": {
+                      "usage": null,
+                      "names": null
+                    }
+                  },
+                  "path-route-objects": {
+                    "path-route-object": {
+                      "index": null,
+                      "numbered-node-hop": {
+                        "node-id": null,
+                        "hop-type": "strict"
+                      },
+                      "numbered-link-hop": {
+                        "link-tp-id": null,
+                        "hop-type": "strict",
+                        "direction": "outgoing"
+                      },
+                      "unnumbered-link-hop": {
+                        "link-tp-id": null,
+                        "node-id": null,
+                        "hop-type": "strict",
+                        "direction": "outgoing"
+                      },
+                      "as-number-hop": {
+                        "as-number": null,
+                        "hop-type": "strict"
+                      },
+                      "label-hop": {
+                        "te-label": {
+                          "generic": null,
+                          "direction": "forward"
+                        }
+                      }
+                    }
+                  }
+                },
+                "roadm-path-impairments": {
+                  "@xmlns": "urn:ietf:params:xml:ns:yang:ietf-optical-impairment-topology"
+                }
+              },
+              "roadm-path-impairments": {
+                "@xmlns": "urn:ietf:params:xml:ns:yang:ietf-optical-impairment-topology"
+              }
+            },
+            "domain-id": null,
+            "is-abstract": null,
+            "name": null,
+            "signaling-address": null,
+            "underlay-topology": {
+              "network-ref": null
+            },
+            "roadm-path-impairments": {
+              "@xmlns": "urn:ietf:params:xml:ns:yang:ietf-optical-impairment-topology",
+              "roadm-path-impairments-id": null,
+              "roadm-express-path": {
+                "roadm-pmd": null,
+                "roadm-cd": null,
+                "roadm-pdl": null,
+                "roadm-inband-crosstalk": null,
+                "roadm-maxloss": null
+              },
+              "roadm-add-path": {
+                "roadm-pmd": null,
+                "roadm-cd": null,
+                "roadm-pdl": null,
+                "roadm-inband-crosstalk": null,
+                "roadm-maxloss": null,
+                "roadm-pmax": null,
+                "roadm-osnr": null,
+                "roadm-noise-figure": null
+              },
+              "roadm-drop-path": {
+                "roadm-pmd": null,
+                "roadm-cd": null,
+                "roadm-pdl": null,
+                "roadm-inband-crosstalk": null,
+                "roadm-maxloss": null,
+                "roadm-minloss": null,
+                "roadm-typloss": null,
+                "roadm-pmin": null,
+                "roadm-pmax": null,
+                "roadm-ptyp": null,
+                "roadm-osnr": null,
+                "roadm-noise-figure": null
+              }
+            }
+          },
+          "oper-status": null,
+          "geolocation": {
+            "altitude": null,
+            "latitude": null,
+            "longitude": null
+          },
+          "is-multi-access-dr": null,
+          "information-source": null,
+          "information-source-instance": null,
+          "information-source-state": {
+            "credibility-preference": null,
+            "logical-network-element": null,
+            "network-instance": null,
+            "topology": {
+              "node-ref": null,
+              "network-ref": null
+            }
+          },
+          "information-source-entry": {
+            "information-source": null,
+            "information-source-instance": null,
+            "information-source-state": {
+              "credibility-preference": null,
+              "logical-network-element": null,
+              "network-instance": null,
+              "topology": {
+                "node-ref": null,
+                "network-ref": null
+              }
+            },
+            "connectivity-matrices": {
+              "number-of-entries": null,
+              "label-restrictions": {
+                "label-restriction": {
+                  "index": null,
+                  "restriction": "inclusive",
+                  "label-start": {
+                    "te-label": {
+                      "generic": null,
+                      "direction": "forward"
+                    }
+                  },
+                  "label-end": {
+                    "te-label": {
+                      "generic": null,
+                      "direction": "forward"
+                    }
+                  },
+                  "label-step": {
+                    "generic": "1"
+                  },
+                  "range-bitmap": null
+                }
+              },
+              "is-allowed": null,
+              "underlay": {
+                "enabled": null,
+                "primary-path": {
+                  "network-ref": null,
+                  "path-element": {
+                    "path-element-id": null,
+                    "numbered-node-hop": {
+                      "node-id": null,
+                      "hop-type": "strict"
+                    },
+                    "numbered-link-hop": {
+                      "link-tp-id": null,
+                      "hop-type": "strict",
+                      "direction": "outgoing"
+                    },
+                    "unnumbered-link-hop": {
+                      "link-tp-id": null,
+                      "node-id": null,
+                      "hop-type": "strict",
+                      "direction": "outgoing"
+                    },
+                    "as-number-hop": {
+                      "as-number": null,
+                      "hop-type": "strict"
+                    },
+                    "label-hop": {
+                      "te-label": {
+                        "generic": null,
+                        "direction": "forward"
+                      }
+                    }
+                  }
+                },
+                "backup-path": {
+                  "index": null,
+                  "network-ref": null,
+                  "path-element": {
+                    "path-element-id": null,
+                    "numbered-node-hop": {
+                      "node-id": null,
+                      "hop-type": "strict"
+                    },
+                    "numbered-link-hop": {
+                      "link-tp-id": null,
+                      "hop-type": "strict",
+                      "direction": "outgoing"
+                    },
+                    "unnumbered-link-hop": {
+                      "link-tp-id": null,
+                      "node-id": null,
+                      "hop-type": "strict",
+                      "direction": "outgoing"
+                    },
+                    "as-number-hop": {
+                      "as-number": null,
+                      "hop-type": "strict"
+                    },
+                    "label-hop": {
+                      "te-label": {
+                        "generic": null,
+                        "direction": "forward"
+                      }
+                    }
+                  }
+                },
+                "protection-type": null,
+                "tunnel-termination-points": {
+                  "source": null,
+                  "destination": null
+                },
+                "tunnels": {
+                  "sharing": "true",
+                  "tunnel": {
+                    "tunnel-name": null,
+                    "sharing": null
+                  }
+                }
+              },
+              "path-constraints": {
+                "te-bandwidth": {
+                  "generic": null
+                },
+                "link-protection": "te-types:link-protection-unprotected",
+                "setup-priority": "7",
+                "hold-priority": "7",
+                "signaling-type": "te-types:path-setup-rsvp",
+                "path-metric-bounds": {
+                  "path-metric-bound": {
+                    "metric-type": null,
+                    "upper-bound": "0"
+                  }
+                },
+                "path-affinities-values": {
+                  "path-affinities-value": {
+                    "usage": null,
+                    "value": null
+                  }
+                },
+                "path-affinity-names": {
+                  "path-affinity-name": {
+                    "usage": null,
+                    "affinity-name": {
+                      "name": null
+                    }
+                  }
+                },
+                "path-srlgs-lists": {
+                  "path-srlgs-list": {
+                    "usage": null,
+                    "values": null
+                  }
+                },
+                "path-srlgs-names": {
+                  "path-srlgs-name": {
+                    "usage": null,
+                    "names": null
+                  }
+                },
+                "disjointness": null
+              },
+              "optimizations": {
+                "optimization-metric": {
+                  "metric-type": null,
+                  "weight": "1",
+                  "explicit-route-exclude-objects": {
+                    "route-object-exclude-object": {
+                      "index": null,
+                      "numbered-node-hop": {
+                        "node-id": null,
+                        "hop-type": "strict"
+                      },
+                      "numbered-link-hop": {
+                        "link-tp-id": null,
+                        "hop-type": "strict",
+                        "direction": "outgoing"
+                      },
+                      "unnumbered-link-hop": {
+                        "link-tp-id": null,
+                        "node-id": null,
+                        "hop-type": "strict",
+                        "direction": "outgoing"
+                      },
+                      "as-number-hop": {
+                        "as-number": null,
+                        "hop-type": "strict"
+                      },
+                      "label-hop": {
+                        "te-label": {
+                          "generic": null,
+                          "direction": "forward"
+                        }
+                      },
+                      "srlg": {
+                        "srlg": null
+                      }
+                    }
+                  },
+                  "explicit-route-include-objects": {
+                    "route-object-include-object": {
+                      "index": null,
+                      "numbered-node-hop": {
+                        "node-id": null,
+                        "hop-type": "strict"
+                      },
+                      "numbered-link-hop": {
+                        "link-tp-id": null,
+                        "hop-type": "strict",
+                        "direction": "outgoing"
+                      },
+                      "unnumbered-link-hop": {
+                        "link-tp-id": null,
+                        "node-id": null,
+                        "hop-type": "strict",
+                        "direction": "outgoing"
+                      },
+                      "as-number-hop": {
+                        "as-number": null,
+                        "hop-type": "strict"
+                      },
+                      "label-hop": {
+                        "te-label": {
+                          "generic": null,
+                          "direction": "forward"
+                        }
+                      }
+                    }
+                  }
+                },
+                "tiebreakers": {
+                  "tiebreaker": {
+                    "tiebreaker-type": null
+                  }
+                },
+                "objective-function": {
+                  "objective-function-type": "te-types:of-minimize-cost-path"
+                }
+              },
+              "path-properties": {
+                "path-metric": {
+                  "metric-type": null,
+                  "accumulative-value": null
+                },
+                "path-affinities-values": {
+                  "path-affinities-value": {
+                    "usage": null,
+                    "value": null
+                  }
+                },
+                "path-affinity-names": {
+                  "path-affinity-name": {
+                    "usage": null,
+                    "affinity-name": {
+                      "name": null
+                    }
+                  }
+                },
+                "path-srlgs-lists": {
+                  "path-srlgs-list": {
+                    "usage": null,
+                    "values": null
+                  }
+                },
+                "path-srlgs-names": {
+                  "path-srlgs-name": {
+                    "usage": null,
+                    "names": null
+                  }
+                },
+                "path-route-objects": {
+                  "path-route-object": {
+                    "index": null,
+                    "numbered-node-hop": {
+                      "node-id": null,
+                      "hop-type": "strict"
+                    },
+                    "numbered-link-hop": {
+                      "link-tp-id": null,
+                      "hop-type": "strict",
+                      "direction": "outgoing"
+                    },
+                    "unnumbered-link-hop": {
+                      "link-tp-id": null,
+                      "node-id": null,
+                      "hop-type": "strict",
+                      "direction": "outgoing"
+                    },
+                    "as-number-hop": {
+                      "as-number": null,
+                      "hop-type": "strict"
+                    },
+                    "label-hop": {
+                      "te-label": {
+                        "generic": null,
+                        "direction": "forward"
+                      }
+                    }
+                  }
+                }
+              },
+              "connectivity-matrix": {
+                "id": null,
+                "from": {
+                  "tp-ref": null,
+                  "label-restrictions": {
+                    "label-restriction": {
+                      "index": null,
+                      "restriction": "inclusive",
+                      "label-start": {
+                        "te-label": {
+                          "generic": null,
+                          "direction": "forward"
+                        }
+                      },
+                      "label-end": {
+                        "te-label": {
+                          "generic": null,
+                          "direction": "forward"
+                        }
+                      },
+                      "label-step": {
+                        "generic": "1"
+                      },
+                      "range-bitmap": null
+                    }
+                  }
+                },
+                "to": {
+                  "tp-ref": null,
+                  "label-restrictions": {
+                    "label-restriction": {
+                      "index": null,
+                      "restriction": "inclusive",
+                      "label-start": {
+                        "te-label": {
+                          "generic": null,
+                          "direction": "forward"
+                        }
+                      },
+                      "label-end": {
+                        "te-label": {
+                          "generic": null,
+                          "direction": "forward"
+                        }
+                      },
+                      "label-step": {
+                        "generic": "1"
+                      },
+                      "range-bitmap": null
+                    }
+                  }
+                },
+                "is-allowed": null,
+                "underlay": {
+                  "enabled": null,
+                  "primary-path": {
+                    "network-ref": null,
+                    "path-element": {
+                      "path-element-id": null,
+                      "numbered-node-hop": {
+                        "node-id": null,
+                        "hop-type": "strict"
+                      },
+                      "numbered-link-hop": {
+                        "link-tp-id": null,
+                        "hop-type": "strict",
+                        "direction": "outgoing"
+                      },
+                      "unnumbered-link-hop": {
+                        "link-tp-id": null,
+                        "node-id": null,
+                        "hop-type": "strict",
+                        "direction": "outgoing"
+                      },
+                      "as-number-hop": {
+                        "as-number": null,
+                        "hop-type": "strict"
+                      },
+                      "label-hop": {
+                        "te-label": {
+                          "generic": null,
+                          "direction": "forward"
+                        }
+                      }
+                    }
+                  },
+                  "backup-path": {
+                    "index": null,
+                    "network-ref": null,
+                    "path-element": {
+                      "path-element-id": null,
+                      "numbered-node-hop": {
+                        "node-id": null,
+                        "hop-type": "strict"
+                      },
+                      "numbered-link-hop": {
+                        "link-tp-id": null,
+                        "hop-type": "strict",
+                        "direction": "outgoing"
+                      },
+                      "unnumbered-link-hop": {
+                        "link-tp-id": null,
+                        "node-id": null,
+                        "hop-type": "strict",
+                        "direction": "outgoing"
+                      },
+                      "as-number-hop": {
+                        "as-number": null,
+                        "hop-type": "strict"
+                      },
+                      "label-hop": {
+                        "te-label": {
+                          "generic": null,
+                          "direction": "forward"
+                        }
+                      }
+                    }
+                  },
+                  "protection-type": null,
+                  "tunnel-termination-points": {
+                    "source": null,
+                    "destination": null
+                  },
+                  "tunnels": {
+                    "sharing": "true",
+                    "tunnel": {
+                      "tunnel-name": null,
+                      "sharing": null
+                    }
+                  }
+                },
+                "path-constraints": {
+                  "te-bandwidth": {
+                    "generic": null
+                  },
+                  "link-protection": "te-types:link-protection-unprotected",
+                  "setup-priority": "7",
+                  "hold-priority": "7",
+                  "signaling-type": "te-types:path-setup-rsvp",
+                  "path-metric-bounds": {
+                    "path-metric-bound": {
+                      "metric-type": null,
+                      "upper-bound": "0"
+                    }
+                  },
+                  "path-affinities-values": {
+                    "path-affinities-value": {
+                      "usage": null,
+                      "value": null
+                    }
+                  },
+                  "path-affinity-names": {
+                    "path-affinity-name": {
+                      "usage": null,
+                      "affinity-name": {
+                        "name": null
+                      }
+                    }
+                  },
+                  "path-srlgs-lists": {
+                    "path-srlgs-list": {
+                      "usage": null,
+                      "values": null
+                    }
+                  },
+                  "path-srlgs-names": {
+                    "path-srlgs-name": {
+                      "usage": null,
+                      "names": null
+                    }
+                  },
+                  "disjointness": null
+                },
+                "optimizations": {
+                  "optimization-metric": {
+                    "metric-type": null,
+                    "weight": "1",
+                    "explicit-route-exclude-objects": {
+                      "route-object-exclude-object": {
+                        "index": null,
+                        "numbered-node-hop": {
+                          "node-id": null,
+                          "hop-type": "strict"
+                        },
+                        "numbered-link-hop": {
+                          "link-tp-id": null,
+                          "hop-type": "strict",
+                          "direction": "outgoing"
+                        },
+                        "unnumbered-link-hop": {
+                          "link-tp-id": null,
+                          "node-id": null,
+                          "hop-type": "strict",
+                          "direction": "outgoing"
+                        },
+                        "as-number-hop": {
+                          "as-number": null,
+                          "hop-type": "strict"
+                        },
+                        "label-hop": {
+                          "te-label": {
+                            "generic": null,
+                            "direction": "forward"
+                          }
+                        },
+                        "srlg": {
+                          "srlg": null
+                        }
+                      }
+                    },
+                    "explicit-route-include-objects": {
+                      "route-object-include-object": {
+                        "index": null,
+                        "numbered-node-hop": {
+                          "node-id": null,
+                          "hop-type": "strict"
+                        },
+                        "numbered-link-hop": {
+                          "link-tp-id": null,
+                          "hop-type": "strict",
+                          "direction": "outgoing"
+                        },
+                        "unnumbered-link-hop": {
+                          "link-tp-id": null,
+                          "node-id": null,
+                          "hop-type": "strict",
+                          "direction": "outgoing"
+                        },
+                        "as-number-hop": {
+                          "as-number": null,
+                          "hop-type": "strict"
+                        },
+                        "label-hop": {
+                          "te-label": {
+                            "generic": null,
+                            "direction": "forward"
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "tiebreakers": {
+                    "tiebreaker": {
+                      "tiebreaker-type": null
+                    }
+                  },
+                  "objective-function": {
+                    "objective-function-type": "te-types:of-minimize-cost-path"
+                  }
+                },
+                "path-properties": {
+                  "path-metric": {
+                    "metric-type": null,
+                    "accumulative-value": null
+                  },
+                  "path-affinities-values": {
+                    "path-affinities-value": {
+                      "usage": null,
+                      "value": null
+                    }
+                  },
+                  "path-affinity-names": {
+                    "path-affinity-name": {
+                      "usage": null,
+                      "affinity-name": {
+                        "name": null
+                      }
+                    }
+                  },
+                  "path-srlgs-lists": {
+                    "path-srlgs-list": {
+                      "usage": null,
+                      "values": null
+                    }
+                  },
+                  "path-srlgs-names": {
+                    "path-srlgs-name": {
+                      "usage": null,
+                      "names": null
+                    }
+                  },
+                  "path-route-objects": {
+                    "path-route-object": {
+                      "index": null,
+                      "numbered-node-hop": {
+                        "node-id": null,
+                        "hop-type": "strict"
+                      },
+                      "numbered-link-hop": {
+                        "link-tp-id": null,
+                        "hop-type": "strict",
+                        "direction": "outgoing"
+                      },
+                      "unnumbered-link-hop": {
+                        "link-tp-id": null,
+                        "node-id": null,
+                        "hop-type": "strict",
+                        "direction": "outgoing"
+                      },
+                      "as-number-hop": {
+                        "as-number": null,
+                        "hop-type": "strict"
+                      },
+                      "label-hop": {
+                        "te-label": {
+                          "generic": null,
+                          "direction": "forward"
+                        }
+                      }
+                    }
+                  }
+                },
+                "roadm-path-impairments": {
+                  "@xmlns": "urn:ietf:params:xml:ns:yang:ietf-optical-impairment-topology"
+                }
+              },
+              "roadm-path-impairments": {
+                "@xmlns": "urn:ietf:params:xml:ns:yang:ietf-optical-impairment-topology"
+              }
+            },
+            "domain-id": null,
+            "is-abstract": null,
+            "name": null,
+            "signaling-address": null,
+            "underlay-topology": {
+              "network-ref": null
+            }
+          },
+          "statistics": {
+            "discontinuity-time": null,
+            "node": {
+              "disables": null,
+              "enables": null,
+              "maintenance-sets": null,
+              "maintenance-clears": null,
+              "modifies": null
+            },
+            "connectivity-matrix-entry": {
+              "creates": null,
+              "deletes": null,
+              "disables": null,
+              "enables": null,
+              "modifies": null
+            }
+          },
+          "tunnel-termination-point": {
+            "tunnel-tp-id": null,
+            "admin-status": null,
+            "name": null,
+            "switching-capability": null,
+            "encoding": null,
+            "inter-layer-lock-id": null,
+            "protection-type": null,
+            "client-layer-adaptation": {
+              "switching-capability": {
+                "switching-capability": null,
+                "encoding": null,
+                "te-bandwidth": {
+                  "generic": null
+                }
+              }
+            },
+            "local-link-connectivities": {
+              "number-of-entries": null,
+              "label-restrictions": {
+                "label-restriction": {
+                  "index": null,
+                  "restriction": "inclusive",
+                  "label-start": {
+                    "te-label": {
+                      "generic": null,
+                      "direction": "forward"
+                    }
+                  },
+                  "label-end": {
+                    "te-label": {
+                      "generic": null,
+                      "direction": "forward"
+                    }
+                  },
+                  "label-step": {
+                    "generic": "1"
+                  },
+                  "range-bitmap": null
+                }
+              },
+              "is-allowed": null,
+              "underlay": {
+                "enabled": null,
+                "primary-path": {
+                  "network-ref": null,
+                  "path-element": {
+                    "path-element-id": null,
+                    "numbered-node-hop": {
+                      "node-id": null,
+                      "hop-type": "strict"
+                    },
+                    "numbered-link-hop": {
+                      "link-tp-id": null,
+                      "hop-type": "strict",
+                      "direction": "outgoing"
+                    },
+                    "unnumbered-link-hop": {
+                      "link-tp-id": null,
+                      "node-id": null,
+                      "hop-type": "strict",
+                      "direction": "outgoing"
+                    },
+                    "as-number-hop": {
+                      "as-number": null,
+                      "hop-type": "strict"
+                    },
+                    "label-hop": {
+                      "te-label": {
+                        "generic": null,
+                        "direction": "forward"
+                      }
+                    }
+                  }
+                },
+                "backup-path": {
+                  "index": null,
+                  "network-ref": null,
+                  "path-element": {
+                    "path-element-id": null,
+                    "numbered-node-hop": {
+                      "node-id": null,
+                      "hop-type": "strict"
+                    },
+                    "numbered-link-hop": {
+                      "link-tp-id": null,
+                      "hop-type": "strict",
+                      "direction": "outgoing"
+                    },
+                    "unnumbered-link-hop": {
+                      "link-tp-id": null,
+                      "node-id": null,
+                      "hop-type": "strict",
+                      "direction": "outgoing"
+                    },
+                    "as-number-hop": {
+                      "as-number": null,
+                      "hop-type": "strict"
+                    },
+                    "label-hop": {
+                      "te-label": {
+                        "generic": null,
+                        "direction": "forward"
+                      }
+                    }
+                  }
+                },
+                "protection-type": null,
+                "tunnel-termination-points": {
+                  "source": null,
+                  "destination": null
+                },
+                "tunnels": {
+                  "sharing": "true",
+                  "tunnel": {
+                    "tunnel-name": null,
+                    "sharing": null
+                  }
+                }
+              },
+              "path-constraints": {
+                "te-bandwidth": {
+                  "generic": null
+                },
+                "link-protection": "te-types:link-protection-unprotected",
+                "setup-priority": "7",
+                "hold-priority": "7",
+                "signaling-type": "te-types:path-setup-rsvp",
+                "path-metric-bounds": {
+                  "path-metric-bound": {
+                    "metric-type": null,
+                    "upper-bound": "0"
+                  }
+                },
+                "path-affinities-values": {
+                  "path-affinities-value": {
+                    "usage": null,
+                    "value": null
+                  }
+                },
+                "path-affinity-names": {
+                  "path-affinity-name": {
+                    "usage": null,
+                    "affinity-name": {
+                      "name": null
+                    }
+                  }
+                },
+                "path-srlgs-lists": {
+                  "path-srlgs-list": {
+                    "usage": null,
+                    "values": null
+                  }
+                },
+                "path-srlgs-names": {
+                  "path-srlgs-name": {
+                    "usage": null,
+                    "names": null
+                  }
+                },
+                "disjointness": null
+              },
+              "optimizations": {
+                "optimization-metric": {
+                  "metric-type": null,
+                  "weight": "1",
+                  "explicit-route-exclude-objects": {
+                    "route-object-exclude-object": {
+                      "index": null,
+                      "numbered-node-hop": {
+                        "node-id": null,
+                        "hop-type": "strict"
+                      },
+                      "numbered-link-hop": {
+                        "link-tp-id": null,
+                        "hop-type": "strict",
+                        "direction": "outgoing"
+                      },
+                      "unnumbered-link-hop": {
+                        "link-tp-id": null,
+                        "node-id": null,
+                        "hop-type": "strict",
+                        "direction": "outgoing"
+                      },
+                      "as-number-hop": {
+                        "as-number": null,
+                        "hop-type": "strict"
+                      },
+                      "label-hop": {
+                        "te-label": {
+                          "generic": null,
+                          "direction": "forward"
+                        }
+                      },
+                      "srlg": {
+                        "srlg": null
+                      }
+                    }
+                  },
+                  "explicit-route-include-objects": {
+                    "route-object-include-object": {
+                      "index": null,
+                      "numbered-node-hop": {
+                        "node-id": null,
+                        "hop-type": "strict"
+                      },
+                      "numbered-link-hop": {
+                        "link-tp-id": null,
+                        "hop-type": "strict",
+                        "direction": "outgoing"
+                      },
+                      "unnumbered-link-hop": {
+                        "link-tp-id": null,
+                        "node-id": null,
+                        "hop-type": "strict",
+                        "direction": "outgoing"
+                      },
+                      "as-number-hop": {
+                        "as-number": null,
+                        "hop-type": "strict"
+                      },
+                      "label-hop": {
+                        "te-label": {
+                          "generic": null,
+                          "direction": "forward"
+                        }
+                      }
+                    }
+                  }
+                },
+                "tiebreakers": {
+                  "tiebreaker": {
+                    "tiebreaker-type": null
+                  }
+                },
+                "objective-function": {
+                  "objective-function-type": "te-types:of-minimize-cost-path"
+                }
+              },
+              "path-properties": {
+                "path-metric": {
+                  "metric-type": null,
+                  "accumulative-value": null
+                },
+                "path-affinities-values": {
+                  "path-affinities-value": {
+                    "usage": null,
+                    "value": null
+                  }
+                },
+                "path-affinity-names": {
+                  "path-affinity-name": {
+                    "usage": null,
+                    "affinity-name": {
+                      "name": null
+                    }
+                  }
+                },
+                "path-srlgs-lists": {
+                  "path-srlgs-list": {
+                    "usage": null,
+                    "values": null
+                  }
+                },
+                "path-srlgs-names": {
+                  "path-srlgs-name": {
+                    "usage": null,
+                    "names": null
+                  }
+                },
+                "path-route-objects": {
+                  "path-route-object": {
+                    "index": null,
+                    "numbered-node-hop": {
+                      "node-id": null,
+                      "hop-type": "strict"
+                    },
+                    "numbered-link-hop": {
+                      "link-tp-id": null,
+                      "hop-type": "strict",
+                      "direction": "outgoing"
+                    },
+                    "unnumbered-link-hop": {
+                      "link-tp-id": null,
+                      "node-id": null,
+                      "hop-type": "strict",
+                      "direction": "outgoing"
+                    },
+                    "as-number-hop": {
+                      "as-number": null,
+                      "hop-type": "strict"
+                    },
+                    "label-hop": {
+                      "te-label": {
+                        "generic": null,
+                        "direction": "forward"
+                      }
+                    }
+                  }
+                }
+              },
+              "local-link-connectivity": {
+                "link-tp-ref": null,
+                "label-restrictions": {
+                  "label-restriction": {
+                    "index": null,
+                    "restriction": "inclusive",
+                    "label-start": {
+                      "te-label": {
+                        "generic": null,
+                        "direction": "forward"
+                      }
+                    },
+                    "label-end": {
+                      "te-label": {
+                        "generic": null,
+                        "direction": "forward"
+                      }
+                    },
+                    "label-step": {
+                      "generic": "1"
+                    },
+                    "range-bitmap": null
+                  }
+                },
+                "is-allowed": null,
+                "underlay": {
+                  "enabled": null,
+                  "primary-path": {
+                    "network-ref": null,
+                    "path-element": {
+                      "path-element-id": null,
+                      "numbered-node-hop": {
+                        "node-id": null,
+                        "hop-type": "strict"
+                      },
+                      "numbered-link-hop": {
+                        "link-tp-id": null,
+                        "hop-type": "strict",
+                        "direction": "outgoing"
+                      },
+                      "unnumbered-link-hop": {
+                        "link-tp-id": null,
+                        "node-id": null,
+                        "hop-type": "strict",
+                        "direction": "outgoing"
+                      },
+                      "as-number-hop": {
+                        "as-number": null,
+                        "hop-type": "strict"
+                      },
+                      "label-hop": {
+                        "te-label": {
+                          "generic": null,
+                          "direction": "forward"
+                        }
+                      }
+                    }
+                  },
+                  "backup-path": {
+                    "index": null,
+                    "network-ref": null,
+                    "path-element": {
+                      "path-element-id": null,
+                      "numbered-node-hop": {
+                        "node-id": null,
+                        "hop-type": "strict"
+                      },
+                      "numbered-link-hop": {
+                        "link-tp-id": null,
+                        "hop-type": "strict",
+                        "direction": "outgoing"
+                      },
+                      "unnumbered-link-hop": {
+                        "link-tp-id": null,
+                        "node-id": null,
+                        "hop-type": "strict",
+                        "direction": "outgoing"
+                      },
+                      "as-number-hop": {
+                        "as-number": null,
+                        "hop-type": "strict"
+                      },
+                      "label-hop": {
+                        "te-label": {
+                          "generic": null,
+                          "direction": "forward"
+                        }
+                      }
+                    }
+                  },
+                  "protection-type": null,
+                  "tunnel-termination-points": {
+                    "source": null,
+                    "destination": null
+                  },
+                  "tunnels": {
+                    "sharing": "true",
+                    "tunnel": {
+                      "tunnel-name": null,
+                      "sharing": null
+                    }
+                  }
+                },
+                "path-constraints": {
+                  "te-bandwidth": {
+                    "generic": null
+                  },
+                  "link-protection": "te-types:link-protection-unprotected",
+                  "setup-priority": "7",
+                  "hold-priority": "7",
+                  "signaling-type": "te-types:path-setup-rsvp",
+                  "path-metric-bounds": {
+                    "path-metric-bound": {
+                      "metric-type": null,
+                      "upper-bound": "0"
+                    }
+                  },
+                  "path-affinities-values": {
+                    "path-affinities-value": {
+                      "usage": null,
+                      "value": null
+                    }
+                  },
+                  "path-affinity-names": {
+                    "path-affinity-name": {
+                      "usage": null,
+                      "affinity-name": {
+                        "name": null
+                      }
+                    }
+                  },
+                  "path-srlgs-lists": {
+                    "path-srlgs-list": {
+                      "usage": null,
+                      "values": null
+                    }
+                  },
+                  "path-srlgs-names": {
+                    "path-srlgs-name": {
+                      "usage": null,
+                      "names": null
+                    }
+                  },
+                  "disjointness": null
+                },
+                "optimizations": {
+                  "optimization-metric": {
+                    "metric-type": null,
+                    "weight": "1",
+                    "explicit-route-exclude-objects": {
+                      "route-object-exclude-object": {
+                        "index": null,
+                        "numbered-node-hop": {
+                          "node-id": null,
+                          "hop-type": "strict"
+                        },
+                        "numbered-link-hop": {
+                          "link-tp-id": null,
+                          "hop-type": "strict",
+                          "direction": "outgoing"
+                        },
+                        "unnumbered-link-hop": {
+                          "link-tp-id": null,
+                          "node-id": null,
+                          "hop-type": "strict",
+                          "direction": "outgoing"
+                        },
+                        "as-number-hop": {
+                          "as-number": null,
+                          "hop-type": "strict"
+                        },
+                        "label-hop": {
+                          "te-label": {
+                            "generic": null,
+                            "direction": "forward"
+                          }
+                        },
+                        "srlg": {
+                          "srlg": null
+                        }
+                      }
+                    },
+                    "explicit-route-include-objects": {
+                      "route-object-include-object": {
+                        "index": null,
+                        "numbered-node-hop": {
+                          "node-id": null,
+                          "hop-type": "strict"
+                        },
+                        "numbered-link-hop": {
+                          "link-tp-id": null,
+                          "hop-type": "strict",
+                          "direction": "outgoing"
+                        },
+                        "unnumbered-link-hop": {
+                          "link-tp-id": null,
+                          "node-id": null,
+                          "hop-type": "strict",
+                          "direction": "outgoing"
+                        },
+                        "as-number-hop": {
+                          "as-number": null,
+                          "hop-type": "strict"
+                        },
+                        "label-hop": {
+                          "te-label": {
+                            "generic": null,
+                            "direction": "forward"
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "tiebreakers": {
+                    "tiebreaker": {
+                      "tiebreaker-type": null
+                    }
+                  },
+                  "objective-function": {
+                    "objective-function-type": "te-types:of-minimize-cost-path"
+                  }
+                },
+                "path-properties": {
+                  "path-metric": {
+                    "metric-type": null,
+                    "accumulative-value": null
+                  },
+                  "path-affinities-values": {
+                    "path-affinities-value": {
+                      "usage": null,
+                      "value": null
+                    }
+                  },
+                  "path-affinity-names": {
+                    "path-affinity-name": {
+                      "usage": null,
+                      "affinity-name": {
+                        "name": null
+                      }
+                    }
+                  },
+                  "path-srlgs-lists": {
+                    "path-srlgs-list": {
+                      "usage": null,
+                      "values": null
+                    }
+                  },
+                  "path-srlgs-names": {
+                    "path-srlgs-name": {
+                      "usage": null,
+                      "names": null
+                    }
+                  },
+                  "path-route-objects": {
+                    "path-route-object": {
+                      "index": null,
+                      "numbered-node-hop": {
+                        "node-id": null,
+                        "hop-type": "strict"
+                      },
+                      "numbered-link-hop": {
+                        "link-tp-id": null,
+                        "hop-type": "strict",
+                        "direction": "outgoing"
+                      },
+                      "unnumbered-link-hop": {
+                        "link-tp-id": null,
+                        "node-id": null,
+                        "hop-type": "strict",
+                        "direction": "outgoing"
+                      },
+                      "as-number-hop": {
+                        "as-number": null,
+                        "hop-type": "strict"
+                      },
+                      "label-hop": {
+                        "te-label": {
+                          "generic": null,
+                          "direction": "forward"
+                        }
+                      }
+                    }
+                  }
+                },
+                "add-path-impairments": {
+                  "@xmlns": "urn:ietf:params:xml:ns:yang:ietf-optical-impairment-topology"
+                },
+                "drop-path-impairments": {
+                  "@xmlns": "urn:ietf:params:xml:ns:yang:ietf-optical-impairment-topology"
+                }
+              },
+              "add-path-impairments": {
+                "@xmlns": "urn:ietf:params:xml:ns:yang:ietf-optical-impairment-topology"
+              },
+              "drop-path-impairments": {
+                "@xmlns": "urn:ietf:params:xml:ns:yang:ietf-optical-impairment-topology"
+              }
+            },
+            "oper-status": null,
+            "geolocation": {
+              "altitude": null,
+              "latitude": null,
+              "longitude": null
+            },
+            "statistics": {
+              "discontinuity-time": null,
+              "tunnel-termination-point": {
+                "disables": null,
+                "enables": null,
+                "maintenance-clears": null,
+                "maintenance-sets": null,
+                "modifies": null,
+                "downs": null,
+                "ups": null,
+                "in-service-clears": null,
+                "in-service-sets": null
+              },
+              "local-link-connectivity": {
+                "creates": null,
+                "deletes": null,
+                "disables": null,
+                "enables": null,
+                "modifies": null
+              }
+            },
+            "supporting-tunnel-termination-point": {
+              "node-ref": null,
+              "tunnel-tp-ref": null
+            },
+            "OTSiG-element": {
+              "@xmlns": "urn:ietf:params:xml:ns:yang:ietf-optical-impairment-topology",
+              "OTSiG-identifier": null,
+              "OTSiG-container": {
+                "OTSi": {
+                  "OTSi-carrier-id": null,
+                  "OTSi-carrier-frequency": null,
+                  "OTSi-signal-width": null,
+                  "channel-delta-power": null
+                }
+              }
+            },
+            "transponders-list": {
+              "@xmlns": "urn:ietf:params:xml:ns:yang:ietf-optical-impairment-topology",
+              "transponder-id": null,
+              "standard-mode": null,
+              "operational-mode": null,
+              "organization-identifier": null,
+              "available-modulation-types": null,
+              "configured-modulation-type": null,
+              "available-baud-rates": null,
+              "configured-baud-rate": null,
+              "available-FEC-types": null,
+              "configured-FEC-type": null,
+              "FEC-code-rate": null,
+              "FEC-threshold": null,
+              "chromatic-and-polarization-dispersion": {
+                "index": null,
+                "chromatic-dispersion": null,
+                "polarization-mode-dispersion": null,
+                "penalty": null
+              },
+              "power": null,
+              "power-min": null,
+              "power-max": null
+            },
+            "transponder-list": {
+              "@xmlns": "urn:ietf:params:xml:ns:yang:ietf-optical-impairment-topology",
+              "carrier-id": null
+            }
+          }
+        }
+      },
+      "link": {
+        "@xmlns": "urn:ietf:params:xml:ns:yang:ietf-network-topology",
+        "link-id": null,
+        "source": {
+          "source-node": null,
+          "source-tp": null
+        },
+        "destination": {
+          "dest-node": null,
+          "dest-tp": null
+        },
+        "supporting-link": {
+          "network-ref": null,
+          "link-ref": null
+        },
+        "te": {
+          "@xmlns": "urn:ietf:params:xml:ns:yang:ietf-te-topology",
+          "bundled-links": {
+            "bundled-link": {
+              "sequence": null,
+              "src-tp-ref": null,
+              "des-tp-ref": null
+            }
+          },
+          "component-links": {
+            "component-link": {
+              "sequence": null,
+              "src-interface-ref": null,
+              "des-interface-ref": null
+            }
+          },
+          "te-link-template": null,
+          "te-link-attributes": {
+            "access-type": null,
+            "external-domain": {
+              "network-ref": null,
+              "remote-te-node-id": null,
+              "remote-te-link-tp-id": null
+            },
+            "is-abstract": null,
+            "name": null,
+            "underlay": {
+              "enabled": null,
+              "primary-path": {
+                "network-ref": null,
+                "path-element": {
+                  "path-element-id": null,
+                  "numbered-node-hop": {
+                    "node-id": null,
+                    "hop-type": "strict"
+                  },
+                  "numbered-link-hop": {
+                    "link-tp-id": null,
+                    "hop-type": "strict",
+                    "direction": "outgoing"
+                  },
+                  "unnumbered-link-hop": {
+                    "link-tp-id": null,
+                    "node-id": null,
+                    "hop-type": "strict",
+                    "direction": "outgoing"
+                  },
+                  "as-number-hop": {
+                    "as-number": null,
+                    "hop-type": "strict"
+                  },
+                  "label-hop": {
+                    "te-label": {
+                      "generic": null,
+                      "direction": "forward"
+                    }
+                  }
+                }
+              },
+              "backup-path": {
+                "index": null,
+                "network-ref": null,
+                "path-element": {
+                  "path-element-id": null,
+                  "numbered-node-hop": {
+                    "node-id": null,
+                    "hop-type": "strict"
+                  },
+                  "numbered-link-hop": {
+                    "link-tp-id": null,
+                    "hop-type": "strict",
+                    "direction": "outgoing"
+                  },
+                  "unnumbered-link-hop": {
+                    "link-tp-id": null,
+                    "node-id": null,
+                    "hop-type": "strict",
+                    "direction": "outgoing"
+                  },
+                  "as-number-hop": {
+                    "as-number": null,
+                    "hop-type": "strict"
+                  },
+                  "label-hop": {
+                    "te-label": {
+                      "generic": null,
+                      "direction": "forward"
+                    }
+                  }
+                }
+              },
+              "protection-type": null,
+              "tunnel-termination-points": {
+                "source": null,
+                "destination": null
+              },
+              "tunnels": {
+                "sharing": "true",
+                "tunnel": {
+                  "tunnel-name": null,
+                  "sharing": null
+                }
+              }
+            },
+            "admin-status": null,
+            "link-index": null,
+            "administrative-group": null,
+            "interface-switching-capability": {
+              "switching-capability": null,
+              "encoding": null,
+              "max-lsp-bandwidth": {
+                "priority": null,
+                "te-bandwidth": {
+                  "generic": null
+                }
+              }
+            },
+            "label-restrictions": {
+              "label-restriction": {
+                "index": null,
+                "restriction": "inclusive",
+                "label-start": {
+                  "te-label": {
+                    "generic": null,
+                    "direction": "forward"
+                  }
+                },
+                "label-end": {
+                  "te-label": {
+                    "generic": null,
+                    "direction": "forward"
+                  }
+                },
+                "label-step": {
+                  "generic": "1"
+                },
+                "range-bitmap": null
+              }
+            },
+            "link-protection-type": null,
+            "max-link-bandwidth": {
+              "te-bandwidth": {
+                "generic": null
+              }
+            },
+            "max-resv-link-bandwidth": {
+              "te-bandwidth": {
+                "generic": null
+              }
+            },
+            "unreserved-bandwidth": {
+              "priority": null,
+              "te-bandwidth": {
+                "generic": null
+              }
+            },
+            "te-default-metric": null,
+            "te-delay-metric": null,
+            "te-igp-metric": null,
+            "te-srlgs": {
+              "value": null
+            },
+            "te-nsrlgs": {
+              "id": null
+            },
+            "OMS-attributes": {
+              "@xmlns": "urn:ietf:params:xml:ns:yang:ietf-optical-impairment-topology",
+              "generalized-snr": null,
+              "equalization-mode": null,
+              "nominal-channel-power": null,
+              "nominal-power-spectral-density": null,
+              "media-channel-group": {
+                "i": null,
+                "media-channels": {
+                  "flexi-n": null,
+                  "flexi-m": null,
+                  "OTSiG-ref": null,
+                  "OTSi-ref": null
+                }
+              },
+              "OMS-elements": {
+                "elt-index": null,
+                "uid": null,
+                "type": null,
+                "element": {
+                  "amplifier": {
+                    "type-variety": null,
+                    "operational": {
+                      "actual-gain": null,
+                      "tilt-target": null,
+                      "out-voa": null,
+                      "in-voa": null,
+                      "nominal-channel-power": null,
+                      "nominal-power-spectral-density": null
+                    }
+                  },
+                  "fiber": {
+                    "type-variety": null,
+                    "length": null,
+                    "loss-coef": null,
+                    "total-loss": null,
+                    "pmd": null,
+                    "conn-in": null,
+                    "conn-out": null
+                  },
+                  "concentratedloss": {
+                    "loss": null
+                  }
+                }
+              }
+            }
+          },
+          "oper-status": null,
+          "is-transitional": null,
+          "information-source": null,
+          "information-source-instance": null,
+          "information-source-state": {
+            "credibility-preference": null,
+            "logical-network-element": null,
+            "network-instance": null,
+            "topology": {
+              "link-ref": null,
+              "network-ref": null
+            }
+          },
+          "information-source-entry": {
+            "information-source": null,
+            "information-source-instance": null,
+            "information-source-state": {
+              "credibility-preference": null,
+              "logical-network-element": null,
+              "network-instance": null,
+              "topology": {
+                "link-ref": null,
+                "network-ref": null
+              }
+            },
+            "link-index": null,
+            "administrative-group": null,
+            "interface-switching-capability": {
+              "switching-capability": null,
+              "encoding": null,
+              "max-lsp-bandwidth": {
+                "priority": null,
+                "te-bandwidth": {
+                  "generic": null
+                }
+              }
+            },
+            "label-restrictions": {
+              "label-restriction": {
+                "index": null,
+                "restriction": "inclusive",
+                "label-start": {
+                  "te-label": {
+                    "generic": null,
+                    "direction": "forward"
+                  }
+                },
+                "label-end": {
+                  "te-label": {
+                    "generic": null,
+                    "direction": "forward"
+                  }
+                },
+                "label-step": {
+                  "generic": "1"
+                },
+                "range-bitmap": null
+              }
+            },
+            "link-protection-type": null,
+            "max-link-bandwidth": {
+              "te-bandwidth": {
+                "generic": null
+              }
+            },
+            "max-resv-link-bandwidth": {
+              "te-bandwidth": {
+                "generic": null
+              }
+            },
+            "unreserved-bandwidth": {
+              "priority": null,
+              "te-bandwidth": {
+                "generic": null
+              }
+            },
+            "te-default-metric": null,
+            "te-delay-metric": null,
+            "te-igp-metric": null,
+            "te-srlgs": {
+              "value": null
+            },
+            "te-nsrlgs": {
+              "id": null
+            }
+          },
+          "recovery": {
+            "restoration-status": null,
+            "protection-status": null
+          },
+          "underlay": {
+            "dynamic": null,
+            "committed": null
+          },
+          "statistics": {
+            "discontinuity-time": null,
+            "disables": null,
+            "enables": null,
+            "maintenance-clears": null,
+            "maintenance-sets": null,
+            "modifies": null,
+            "downs": null,
+            "ups": null,
+            "fault-clears": null,
+            "fault-detects": null,
+            "protection-switches": null,
+            "protection-reverts": null,
+            "restoration-failures": null,
+            "restoration-starts": null,
+            "restoration-successes": null,
+            "restoration-reversion-failures": null,
+            "restoration-reversion-starts": null,
+            "restoration-reversion-successes": null
+          }
+        }
+      },
+      "te-topology-identifier": {
+        "@xmlns": "urn:ietf:params:xml:ns:yang:ietf-te-topology",
+        "provider-id": "0",
+        "client-id": "0",
+        "topology-id": null
+      },
+      "te": {
+        "@xmlns": "urn:ietf:params:xml:ns:yang:ietf-te-topology",
+        "name": null,
+        "preference": null,
+        "optimization-criterion": null,
+        "nsrlg": {
+          "id": null,
+          "disjointness": null
+        },
+        "geolocation": {
+          "altitude": null,
+          "latitude": null,
+          "longitude": null
+        }
+      }
+    },
+    "te": {
+      "@xmlns": "urn:ietf:params:xml:ns:yang:ietf-te-topology",
+      "templates": {
+        "node-template": {
+          "name": null,
+          "priority": null,
+          "reference-change-policy": null,
+          "te-node-attributes": {
+            "admin-status": null,
+            "domain-id": null,
+            "is-abstract": null,
+            "name": null,
+            "signaling-address": null,
+            "underlay-topology": {
+              "network-ref": null
+            }
+          }
+        },
+        "link-template": {
+          "name": null,
+          "priority": null,
+          "reference-change-policy": null,
+          "te-link-attributes": {
+            "access-type": null,
+            "external-domain": {
+              "network-ref": null,
+              "remote-te-node-id": null,
+              "remote-te-link-tp-id": null
+            },
+            "is-abstract": null,
+            "name": null,
+            "underlay": {
+              "enabled": null,
+              "primary-path": {
+                "network-ref": null,
+                "path-element": {
+                  "path-element-id": null,
+                  "numbered-node-hop": {
+                    "node-id": null,
+                    "hop-type": "strict"
+                  },
+                  "numbered-link-hop": {
+                    "link-tp-id": null,
+                    "hop-type": "strict",
+                    "direction": "outgoing"
+                  },
+                  "unnumbered-link-hop": {
+                    "link-tp-id": null,
+                    "node-id": null,
+                    "hop-type": "strict",
+                    "direction": "outgoing"
+                  },
+                  "as-number-hop": {
+                    "as-number": null,
+                    "hop-type": "strict"
+                  },
+                  "label-hop": {
+                    "te-label": {
+                      "generic": null,
+                      "direction": "forward"
+                    }
+                  }
+                }
+              },
+              "backup-path": {
+                "index": null,
+                "network-ref": null,
+                "path-element": {
+                  "path-element-id": null,
+                  "numbered-node-hop": {
+                    "node-id": null,
+                    "hop-type": "strict"
+                  },
+                  "numbered-link-hop": {
+                    "link-tp-id": null,
+                    "hop-type": "strict",
+                    "direction": "outgoing"
+                  },
+                  "unnumbered-link-hop": {
+                    "link-tp-id": null,
+                    "node-id": null,
+                    "hop-type": "strict",
+                    "direction": "outgoing"
+                  },
+                  "as-number-hop": {
+                    "as-number": null,
+                    "hop-type": "strict"
+                  },
+                  "label-hop": {
+                    "te-label": {
+                      "generic": null,
+                      "direction": "forward"
+                    }
+                  }
+                }
+              },
+              "protection-type": null,
+              "tunnel-termination-points": {
+                "source": null,
+                "destination": null
+              },
+              "tunnels": {
+                "sharing": "true",
+                "tunnel": {
+                  "tunnel-name": null,
+                  "sharing": null
+                }
+              }
+            },
+            "admin-status": null,
+            "link-index": null,
+            "administrative-group": null,
+            "interface-switching-capability": {
+              "switching-capability": null,
+              "encoding": null,
+              "max-lsp-bandwidth": {
+                "priority": null,
+                "te-bandwidth": {
+                  "generic": null
+                }
+              }
+            },
+            "label-restrictions": {
+              "label-restriction": {
+                "index": null,
+                "restriction": "inclusive",
+                "label-start": {
+                  "te-label": {
+                    "generic": null,
+                    "direction": "forward"
+                  }
+                },
+                "label-end": {
+                  "te-label": {
+                    "generic": null,
+                    "direction": "forward"
+                  }
+                },
+                "label-step": {
+                  "generic": "1"
+                },
+                "range-bitmap": null
+              }
+            },
+            "link-protection-type": null,
+            "max-link-bandwidth": {
+              "te-bandwidth": {
+                "generic": null
+              }
+            },
+            "max-resv-link-bandwidth": {
+              "te-bandwidth": {
+                "generic": null
+              }
+            },
+            "unreserved-bandwidth": {
+              "priority": null,
+              "te-bandwidth": {
+                "generic": null
+              }
+            },
+            "te-default-metric": null,
+            "te-delay-metric": null,
+            "te-igp-metric": null,
+            "te-srlgs": {
+              "value": null
+            },
+            "te-nsrlgs": {
+              "id": null
+            }
+          }
+        }
+      }
+    }
+  }
+}

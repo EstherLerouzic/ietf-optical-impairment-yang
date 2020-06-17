@@ -1,0 +1,481 @@
+module gnpy-ietf-network {
+  yang-version 1.1;
+  namespace "urn:ietf:params:xml:ns:yang:gnpy-ietf-network";
+  prefix nw;
+
+  import ietf-inet-types {
+    prefix inet;
+    reference
+      "RFC 6991: Common YANG Data Types";
+    }
+
+  import ietf-te-types {
+    prefix "te-types";
+    reference
+      "I-D.ietf-teas-yang-te-types: Traffic Engineering Common YANG
+       Types";
+    }
+
+  organization
+    "   ";
+
+  contact
+    "   ";
+  description
+    "This module builds optical context for GNPy";
+
+  revision 2020-06-16 {
+    description
+      "Initial revision.";
+    reference
+      "RFC 8345: A YANG Data Model for Network Topologies
+       RFC XXXX: YANG Data Model for TE Topologies
+       RFC XXXX: A Yang Data Model for Impairment-aware
+       Optical Networks";
+    }
+
+  typedef node-id {
+    type inet:uri;
+    description
+      "Identifier for a node.  The precise structure of the node-id
+       will be up to the implementation.  For example, some
+       implementations MAY pick a URI that includes the network-id
+       as part of the path.  The identifier SHOULD be chosen
+       such that the same node in a real network topology will
+       always be identified through the same identifier, even if
+       the data model is instantiated in separate datastores.  An
+       implementation MAY choose to capture semantics in the
+       identifier -- for example, to indicate the type of node.";
+    }
+
+  typedef network-id {
+    type inet:uri;
+    description
+      "Identifier for a network.  The precise structure of the
+       network-id will be up to the implementation.  The identifier
+       SHOULD be chosen such that the same network will always be
+       identified through the same identifier, even if the data model
+       is instantiated in separate datastores.  An implementation MAY
+       choose to capture semantics in the identifier -- for example,
+       to indicate the type of network.";
+    }
+
+  typedef tp-id {
+    type inet:uri;
+    description
+      "An identifier for termination points on a node.  The precise
+       structure of the tp-id will be up to the implementation.
+       The identifier SHOULD be chosen such that the same termination
+       point in a real network topology will always be identified
+       through the same identifier, even if the data model is
+       instantiated in separate datastores.  An implementation MAY
+       choose to capture semantics in the identifier -- for example,
+       to indicate the type of termination point and/or the type of
+       node that contains the termination point.";
+    }
+
+  typedef geographic-coordinate-degree {
+      type decimal64 {
+        fraction-digits 8;
+      }
+      description
+        "Decimal degree (DD) used to express latitude and longitude
+         geographic coordinates.";
+    } // geographic-coordinate-degree
+
+  typedef link-id {
+    type inet:uri;
+    description
+      "An identifier for a link in a topology.  The precise
+       structure of the link-id will be up to the implementation.
+       The identifier SHOULD be chosen such that the same link in a
+       real network topology will always be identified through the
+       same identifier, even if the data model is instantiated in
+       separate datastores.  An implementation MAY choose to capture
+       semantics in the identifier -- for example, to indicate the
+       type of link and/or the type of topology of which the link is
+       a part.";
+    }
+
+  grouping te-link-iscd-attributes {
+    description
+      "TE link ISCD (Interface Switching Capability Descriptor)
+       attributes.";
+    reference
+      "Sec 1.4, RFC 4203: OSPF Extensions in Support of Generalized
+       Multi-Protocol Label Switching (GMPLS). Section 1.4.";
+    list max-lsp-bandwidth {
+      key "priority";
+      max-elements "8";
+      description
+        "Maximum LSP Bandwidth at priorities 0-7.";
+      leaf priority {
+        type uint8 {
+          range "0..7";
+        }
+        description "Priority.";
+      }
+      uses te-types:te-bandwidth;
+    }
+  } // te-link-iscd-attributes
+
+  grouping geolocation-container {
+    description
+      "A container containing a GPS location.";
+    container geolocation{
+      config false;
+      description
+        "A container containing a GPS location.";
+      leaf altitude {
+        type int64;
+        units millimeter;
+        description
+          "Distance above the sea level.";
+      }
+      leaf latitude {
+        type geographic-coordinate-degree {
+          range "-90..90";
+        }
+        description
+          "Relative position north or south on the Earth's surface.";
+      }
+      leaf longitude {
+        type geographic-coordinate-degree {
+          range "-180..180";
+        }
+        description
+          "Angular distance east or west on the Earth's surface.";
+      }
+    } // gps-location
+  } // geolocation-container
+  container networks {
+    description
+      "Serves as a top-level container for a list of networks.";
+    list network {
+      key "network-id";
+      description
+        "Describes a network.
+         A network typically contains an inventory of nodes,
+         topological information (augmented through the
+         network-topology data model), and layering information.";
+      leaf network-id {
+        type network-id;
+        description
+          "Identifies a network.";
+      }
+      container network-types {
+        description
+          "Serves as an augmentation target.
+           The network type is indicated through corresponding
+           presence containers augmented into this container.";
+        container te-topology {
+          presence "Indicates TE topology.";
+          description
+            "Its presence identifies the TE topology type.";
+          }
+        }
+
+      list node {
+        key "node-id";
+        description
+          "The inventory of nodes of this network.";
+        leaf node-id {
+          type node-id;
+          description
+            "Uniquely identifies a node within the containing
+             network.";
+          }
+        list termination-point {
+          key "tp-id";
+          description
+            "A termination point can terminate a link.
+             Depending on the type of topology, a termination point
+             could, for example, refer to a port or an interface.";
+          leaf tp-id {
+            type tp-id;
+            description
+              "Termination point identifier.";
+            }
+          leaf te-tp-id {
+            type te-types:te-tp-id;
+            description
+              "An identifier to uniquely identify a TE termination
+               point.";
+            }
+          container te {
+            must "../te-tp-id";
+            presence "TE support.";
+            description
+              "Indicates TE support.";
+            leaf name {
+              type string;
+              description "Node name.";
+              }
+            list interface-switching-capability {
+              key "switching-capability encoding";
+              description
+                "List of Interface Switching Capabilities Descriptors (ISCD)
+                 for this link.";
+              reference
+                "RFC 3471: Generalized Multi-Protocol Label Switching (GMPLS)
+                 Signaling Functional Description.
+                 RFC 4203: OSPF Extensions in Support of Generalized
+                 Multi-Protocol Label Switching (GMPLS).";
+              leaf switching-capability {
+                type identityref {
+                  base te-types:switching-capabilities;
+                  }
+                description
+                  "Switching Capability for this interface.";
+                }
+              leaf encoding {
+                type identityref {
+                  base te-types:lsp-encoding-types;
+                  }
+                description
+                  "Encoding supported by this interface.";
+                }
+              uses te-link-iscd-attributes;
+              uses te-types:label-set-info;
+              }
+            }
+          }
+        leaf te-node-id {
+          type te-types:te-node-id;
+          description
+            "The identifier of a node in the TE topology.
+             A node is specific to a topology to which it belongs.";
+          }
+        container te {
+          must "../te-node-id" {
+            description
+              "te-node-id is mandatory.";
+            }
+          presence "TE support.";
+          description
+            "Indicates TE support.";
+
+          container te-node-attributes {
+            description "Containing node attributes in a TE topology.";
+            container connectivity-matrices {
+              description
+                "Containing connectivity matrix on a TE node.";
+              list connectivity-matrix {
+                key "id";
+                description
+                  "Represents node's switching limitations, i.e. limitations
+                   in interconnecting network TE links across the node.";
+                reference
+                  "RFC 7579: General Network Element Constraint Encoding
+                   for GMPLS-Controlled Networks.";
+                leaf id {
+                  type uint32;
+                  description "Identifies the connectivity-matrix entry.";
+                  }
+                container from {
+                  description
+                    "Reference to source link termination point.";
+                  leaf tp-ref {
+                    type leafref {
+                      path "../../../../../../termination-point/tp-id";
+                      }
+                    description
+                      "Relative reference to a termination point.";
+                    }
+                  uses te-types:label-set-info;
+                  }
+                container to {
+                  description
+                    "Reference to destination link termination point.";
+                  leaf tp-ref {
+                    type leafref {
+                      path "../../../../../../termination-point/tp-id";
+                      }
+                    description
+                      "Relative reference to a termination point.";
+                    }
+                  uses te-types:label-set-info;
+                  }
+                } // connectivity-matrix
+              } // connectivity-matrices
+            leaf name {
+              type string;
+              description "Node name.";
+              }
+            }
+          uses geolocation-container;
+          list tunnel-termination-point {
+            key "tunnel-tp-id";
+            description
+              "A termination point can terminate a tunnel.";
+            leaf tunnel-tp-id {
+              type binary;
+              description
+                "Tunnel termination point identifier.";
+              }
+            leaf name {
+              type string;
+              description
+                "A descriptive name for the tunnel termination point.";
+              }
+            leaf switching-capability {
+              type identityref {
+                base te-types:switching-capabilities;
+                }
+              description
+                "Switching Capability for this interface.";
+              }
+            leaf encoding {
+              type identityref {
+                base te-types:lsp-encoding-types;
+                }
+              description
+                "Encoding supported by this interface.";
+              }
+            leaf protection-type {
+              type identityref {
+                base te-types:lsp-protection-type;
+                }
+              description
+                "The protection type that this tunnel termination point
+                 is capable of.";
+              }
+            container local-link-connectivities {
+              description
+                "Containing local link connectivity list for
+                 a tunnel termination point on a TE node.";
+              list local-link-connectivity {
+                key "link-tp-ref";
+                description
+                  "The termination capabilities between
+                   tunnel-termination-point and link termination-point.
+                   The capability information can be used to compute
+                   the tunnel path.
+                   The Interface Adjustment Capability Descriptors (IACD)
+                   (defined in RFC 6001) on each link-tp can be derived from
+                   this local-link-connectivity list.";
+                reference
+                  "RFC 6001: Generalized MPLS (GMPLS) Protocol Extensions
+                   for Multi-Layer and Multi-Region Networks (MLN/MRN).";
+
+                leaf link-tp-ref {
+                  type leafref {
+                    path "../../../../../termination-point/tp-id";
+                  }
+                  description
+                    "Link termination point.";
+                }
+                uses te-types:label-set-info;
+                } // local-link-connectivities
+              }// Relations to other tunnel termination points
+            } // tunnel-termination-point
+          }
+        }
+      list link {
+        key "link-id";
+        description
+          "A network link connects a local (source) node and
+           a remote (destination) node via a set of the respective
+           node's termination points.  It is possible to have several
+           links between the same source and destination nodes.
+           Likewise, a link could potentially be re-homed between
+           termination points.  Therefore, in order to ensure that we
+           would always know to distinguish between links, every link
+           is identified by a dedicated link identifier.  Note that a
+           link models a point-to-point link, not a multipoint link.";
+        leaf link-id {
+          type link-id;
+          description
+            "The identifier of a link in the topology.
+             A link is specific to a topology to which it belongs.";
+          }
+        container source {
+          description
+            "This container holds the logical source of a particular
+             link.";
+          leaf source-node {
+            type leafref {
+              path "../../../node/node-id";
+              require-instance false;
+              }
+            description
+              "Source node identifier.  Must be in the same topology.";
+            }
+          leaf source-tp {
+            type leafref {
+              path "../../../node[node-id=current()/../"+
+                "source-node]/termination-point/tp-id";
+              require-instance false;
+              }
+            description
+              "This termination point is located within the source node
+               and terminates the link.";
+            }
+          }
+        container destination {
+          description
+            "This container holds the logical destination of a
+             particular link.";
+          leaf dest-node {
+            type leafref {
+              path "../../../node/node-id";
+            require-instance false;
+              }
+            description
+              "Destination node identifier.  Must be in the same
+               network.";
+            }
+          leaf dest-tp {
+            type leafref {
+              path "../../../node[node-id=current()/../"+
+                "dest-node]/termination-point/tp-id";
+              require-instance false;
+              }
+            description
+              "This termination point is located within the
+               destination node and terminates the link.";
+              }
+            }
+        container te {
+          presence "TE support.";
+          description
+            "Indicates TE support.";
+          container te-link-attributes {
+            description "Link attributes in a TE topology.";
+            leaf name {
+              type string;
+              description "Link Name.";
+              }
+            list interface-switching-capability {
+              key "switching-capability encoding";
+              description
+                "List of Interface Switching Capabilities Descriptors (ISCD)
+                 for this link.";
+              reference
+                "RFC 3471: Generalized Multi-Protocol Label Switching (GMPLS)
+                 Signaling Functional Description.
+                 RFC 4203: OSPF Extensions in Support of Generalized
+                 Multi-Protocol Label Switching (GMPLS).";
+              leaf switching-capability {
+                type identityref {
+                  base te-types:switching-capabilities;
+                  }
+                description
+                  "Switching Capability for this interface.";
+                }
+              leaf encoding {
+                type identityref {
+                  base te-types:lsp-encoding-types;
+                  }
+                description
+                  "Encoding supported by this interface.";
+                }
+            uses te-link-iscd-attributes;
+            uses te-types:label-set-info;
+            }
+          }
+        }
+      }
+    }
+  }
+}
