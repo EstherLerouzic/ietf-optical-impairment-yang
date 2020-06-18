@@ -1,0 +1,288 @@
+module: gnpy-ietf-network
+  +--rw networks
+     +--rw network* [network-id]
+        +--rw network-id       network-id
+        +--rw network-types
+        |  +--rw te-topology!
+        |     +--rw optical-imp-topo:optical-impairment-topology!
+        +--rw node* [node-id]
+        |  +--rw node-id              node-id
+        |  +--rw termination-point* [tp-id]
+        |  |  +--rw tp-id       tp-id
+        |  |  +--rw te-tp-id?   te-types:te-tp-id
+        |  |  +--rw te!
+        |  |     +--rw name?                             string
+        |  |     +--rw interface-switching-capability* [switching-capability encoding]
+        |  |        +--rw switching-capability    identityref
+        |  |        +--rw encoding                identityref
+        |  |        +--rw max-lsp-bandwidth* [priority]
+        |  |        |  +--rw priority        uint8
+        |  |        |  +--rw te-bandwidth
+        |  |        |     +--rw (technology)?
+        |  |        |        +--:(generic)
+        |  |        |           +--rw generic?   te-bandwidth
+        |  |        +--rw label-restrictions
+        |  |           +--rw label-restriction* [index]
+        |  |              +--rw restriction?    enumeration
+        |  |              +--rw index           uint32
+        |  |              +--rw label-start
+        |  |              |  +--rw te-label
+        |  |              |     +--rw (technology)?
+        |  |              |     |  +--:(generic)
+        |  |              |     |     +--rw generic?   rt-types:generalized-label
+        |  |              |     +--rw direction?       te-label-direction
+        |  |              +--rw label-end
+        |  |              |  +--rw te-label
+        |  |              |     +--rw (technology)?
+        |  |              |     |  +--:(generic)
+        |  |              |     |     +--rw generic?   rt-types:generalized-label
+        |  |              |     +--rw direction?       te-label-direction
+        |  |              +--rw label-step
+        |  |              |  +--rw (technology)?
+        |  |              |     +--:(generic)
+        |  |              |        +--rw generic?   int32
+        |  |              +--rw range-bitmap?   yang:hex-string
+        |  +--rw te-node-id?          te-types:te-node-id
+        |  +--rw te!
+        |     +--rw te-node-attributes
+        |     |  +--rw connectivity-matrices
+        |     |  |  +--rw connectivity-matrix* [id]
+        |     |  |  |  +--rw id                                         uint32
+        |     |  |  |  +--rw from
+        |     |  |  |  |  +--rw tp-ref?               -> ../../../../../../termination-point/tp-id
+        |     |  |  |  |  +--rw label-restrictions
+        |     |  |  |  |     +--rw label-restriction* [index]
+        |     |  |  |  |        +--rw restriction?    enumeration
+        |     |  |  |  |        +--rw index           uint32
+        |     |  |  |  |        +--rw label-start
+        |     |  |  |  |        |  +--rw te-label
+        |     |  |  |  |        |     +--rw (technology)?
+        |     |  |  |  |        |     |  +--:(generic)
+        |     |  |  |  |        |     |     +--rw generic?   rt-types:generalized-label
+        |     |  |  |  |        |     +--rw direction?       te-label-direction
+        |     |  |  |  |        +--rw label-end
+        |     |  |  |  |        |  +--rw te-label
+        |     |  |  |  |        |     +--rw (technology)?
+        |     |  |  |  |        |     |  +--:(generic)
+        |     |  |  |  |        |     |     +--rw generic?   rt-types:generalized-label
+        |     |  |  |  |        |     +--rw direction?       te-label-direction
+        |     |  |  |  |        +--rw label-step
+        |     |  |  |  |        |  +--rw (technology)?
+        |     |  |  |  |        |     +--:(generic)
+        |     |  |  |  |        |        +--rw generic?   int32
+        |     |  |  |  |        +--rw range-bitmap?   yang:hex-string
+        |     |  |  |  +--rw to
+        |     |  |  |  |  +--rw tp-ref?               -> ../../../../../../termination-point/tp-id
+        |     |  |  |  |  +--rw label-restrictions
+        |     |  |  |  |     +--rw label-restriction* [index]
+        |     |  |  |  |        +--rw restriction?    enumeration
+        |     |  |  |  |        +--rw index           uint32
+        |     |  |  |  |        +--rw label-start
+        |     |  |  |  |        |  +--rw te-label
+        |     |  |  |  |        |     +--rw (technology)?
+        |     |  |  |  |        |     |  +--:(generic)
+        |     |  |  |  |        |     |     +--rw generic?   rt-types:generalized-label
+        |     |  |  |  |        |     +--rw direction?       te-label-direction
+        |     |  |  |  |        +--rw label-end
+        |     |  |  |  |        |  +--rw te-label
+        |     |  |  |  |        |     +--rw (technology)?
+        |     |  |  |  |        |     |  +--:(generic)
+        |     |  |  |  |        |     |     +--rw generic?   rt-types:generalized-label
+        |     |  |  |  |        |     +--rw direction?       te-label-direction
+        |     |  |  |  |        +--rw label-step
+        |     |  |  |  |        |  +--rw (technology)?
+        |     |  |  |  |        |     +--:(generic)
+        |     |  |  |  |        |        +--rw generic?   int32
+        |     |  |  |  |        +--rw range-bitmap?   yang:hex-string
+        |     |  |  |  +--ro optical-imp-topo:roadm-path-impairments?   -> ../../../roadm-path-impairments/roadm-path-impairments-id
+        |     |  |  +--ro optical-imp-topo:roadm-path-impairments?   -> ../../roadm-path-impairments/roadm-path-impairments-id
+        |     |  +--rw name?                                      string
+        |     |  +--ro optical-imp-topo:roadm-path-impairments* [roadm-path-impairments-id]
+        |     |     +--ro optical-imp-topo:roadm-path-impairments-id    uint32
+        |     |     +--ro (optical-imp-topo:impairment-type)?
+        |     |        +--:(optical-imp-topo:roadm-express-path)
+        |     |        |  +--ro optical-imp-topo:roadm-express-path
+        |     |        |     +--ro optical-imp-topo:roadm-pmd?                decimal64
+        |     |        |     +--ro optical-imp-topo:roadm-cd?                 decimal64
+        |     |        |     +--ro optical-imp-topo:roadm-pdl?                decimal64
+        |     |        |     +--ro optical-imp-topo:roadm-inband-crosstalk?   decimal64
+        |     |        |     +--ro optical-imp-topo:roadm-maxloss?            decimal64
+        |     |        +--:(optical-imp-topo:roadm-add-path)
+        |     |        |  +--ro optical-imp-topo:roadm-add-path
+        |     |        |     +--ro optical-imp-topo:roadm-pmd?                decimal64
+        |     |        |     +--ro optical-imp-topo:roadm-cd?                 decimal64
+        |     |        |     +--ro optical-imp-topo:roadm-pdl?                decimal64
+        |     |        |     +--ro optical-imp-topo:roadm-inband-crosstalk?   decimal64
+        |     |        |     +--ro optical-imp-topo:roadm-maxloss?            decimal64
+        |     |        |     +--ro optical-imp-topo:roadm-pmax?               decimal64
+        |     |        |     +--ro optical-imp-topo:roadm-osnr?               decimal64
+        |     |        |     +--ro optical-imp-topo:roadm-noise-figure?       decimal64
+        |     |        +--:(optical-imp-topo:roadm-drop-path)
+        |     |           +--ro optical-imp-topo:roadm-drop-path
+        |     |              +--ro optical-imp-topo:roadm-pmd?                decimal64
+        |     |              +--ro optical-imp-topo:roadm-cd?                 decimal64
+        |     |              +--ro optical-imp-topo:roadm-pdl?                decimal64
+        |     |              +--ro optical-imp-topo:roadm-inband-crosstalk?   decimal64
+        |     |              +--ro optical-imp-topo:roadm-maxloss?            decimal64
+        |     |              +--ro optical-imp-topo:roadm-minloss?            decimal64
+        |     |              +--ro optical-imp-topo:roadm-typloss?            decimal64
+        |     |              +--ro optical-imp-topo:roadm-pmin?               decimal64
+        |     |              +--ro optical-imp-topo:roadm-pmax?               decimal64
+        |     |              +--ro optical-imp-topo:roadm-ptyp?               decimal64
+        |     |              +--ro optical-imp-topo:roadm-osnr?               decimal64
+        |     |              +--ro optical-imp-topo:roadm-noise-figure?       decimal64
+        |     +--ro geolocation
+        |     |  +--ro altitude?    int64
+        |     |  +--ro latitude?    geographic-coordinate-degree
+        |     |  +--ro longitude?   geographic-coordinate-degree
+        |     +--rw tunnel-termination-point* [tunnel-tp-id]
+        |        +--rw tunnel-tp-id                          binary
+        |        +--rw name?                                 string
+        |        +--rw switching-capability?                 identityref
+        |        +--rw encoding?                             identityref
+        |        +--rw protection-type?                      identityref
+        |        +--rw local-link-connectivities
+        |        |  +--rw local-link-connectivity* [link-tp-ref]
+        |        |  |  +--rw link-tp-ref                               -> ../../../../../termination-point/tp-id
+        |        |  |  +--rw label-restrictions
+        |        |  |  |  +--rw label-restriction* [index]
+        |        |  |  |     +--rw restriction?    enumeration
+        |        |  |  |     +--rw index           uint32
+        |        |  |  |     +--rw label-start
+        |        |  |  |     |  +--rw te-label
+        |        |  |  |     |     +--rw (technology)?
+        |        |  |  |     |     |  +--:(generic)
+        |        |  |  |     |     |     +--rw generic?   rt-types:generalized-label
+        |        |  |  |     |     +--rw direction?       te-label-direction
+        |        |  |  |     +--rw label-end
+        |        |  |  |     |  +--rw te-label
+        |        |  |  |     |     +--rw (technology)?
+        |        |  |  |     |     |  +--:(generic)
+        |        |  |  |     |     |     +--rw generic?   rt-types:generalized-label
+        |        |  |  |     |     +--rw direction?       te-label-direction
+        |        |  |  |     +--rw label-step
+        |        |  |  |     |  +--rw (technology)?
+        |        |  |  |     |     +--:(generic)
+        |        |  |  |     |        +--rw generic?   int32
+        |        |  |  |     +--rw range-bitmap?   yang:hex-string
+        |        |  |  +--ro optical-imp-topo:add-path-impairments?    -> ../../../../nw:te-node-attributes/roadm-path-impairments/roadm-path-impairments-id
+        |        |  |  +--ro optical-imp-topo:drop-path-impairments?   -> ../../../../nw:te-node-attributes/roadm-path-impairments/roadm-path-impairments-id
+        |        |  +--ro optical-imp-topo:add-path-impairments?    -> ../../../nw:te-node-attributes/roadm-path-impairments/roadm-path-impairments-id
+        |        |  +--ro optical-imp-topo:drop-path-impairments?   -> ../../../nw:te-node-attributes/roadm-path-impairments/roadm-path-impairments-id
+        |        +--ro optical-imp-topo:OTSiG-element* [OTSiG-identifier]
+        |        |  +--ro optical-imp-topo:OTSiG-identifier    int16
+        |        |  +--ro optical-imp-topo:OTSiG-container
+        |        |     +--ro optical-imp-topo:OTSi* [OTSi-carrier-id]
+        |        |        +--ro optical-imp-topo:OTSi-carrier-id           int16
+        |        |        +--ro optical-imp-topo:OTSi-carrier-frequency?   decimal64
+        |        |        +--ro optical-imp-topo:OTSi-signal-width?        decimal64
+        |        |        +--ro optical-imp-topo:channel-delta-power?      decimal64
+        |        +--ro optical-imp-topo:transponders-list* [transponder-id]
+        |        |  +--ro optical-imp-topo:transponder-id                      uint32
+        |        |  +--ro (optical-imp-topo:mode)?
+        |        |  |  +--:(optical-imp-topo:G.692.2)
+        |        |  |  |  +--ro optical-imp-topo:standard-mode?                standard-mode
+        |        |  |  +--:(optical-imp-topo:organizational-mode)
+        |        |  |  |  +--ro optical-imp-topo:operational-mode?             operational-mode
+        |        |  |  |  +--ro optical-imp-topo:organization-identifier?      vendor-identifier
+        |        |  |  +--:(optical-imp-topo:explicit-mode)
+        |        |  |     +--ro optical-imp-topo:available-modulation-types*   identityref
+        |        |  |     +--ro optical-imp-topo:configured-modulation-type?   identityref
+        |        |  |     +--ro optical-imp-topo:available-baud-rates*         uint32
+        |        |  |     +--ro optical-imp-topo:configured-baud-rate?         uint32
+        |        |  |     +--ro optical-imp-topo:available-FEC-types*          identityref
+        |        |  |     +--ro optical-imp-topo:configured-FEC-type?          identityref
+        |        |  |     +--ro optical-imp-topo:FEC-code-rate?                decimal64
+        |        |  |     +--ro optical-imp-topo:FEC-threshold?                decimal64
+        |        |  +--ro optical-imp-topo:power?                              int32
+        |        |  +--ro optical-imp-topo:power-min?                          int32
+        |        |  +--ro optical-imp-topo:power-max?                          int32
+        |        +--ro optical-imp-topo:transponder-list* [carrier-id]
+        |           +--ro optical-imp-topo:carrier-id    uint32
+        +--rw link* [link-id]
+           +--rw link-id        link-id
+           +--rw source
+           |  +--rw source-node?   -> ../../../node/node-id
+           |  +--rw source-tp?     -> ../../../node[node-id=current()/../source-node]/termination-point/tp-id
+           +--rw destination
+           |  +--rw dest-node?   -> ../../../node/node-id
+           |  +--rw dest-tp?     -> ../../../node[node-id=current()/../dest-node]/termination-point/tp-id
+           +--rw te!
+              +--rw te-link-attributes
+                 +--rw name?                              string
+                 +--rw interface-switching-capability* [switching-capability encoding]
+                 |  +--rw switching-capability    identityref
+                 |  +--rw encoding                identityref
+                 |  +--rw max-lsp-bandwidth* [priority]
+                 |  |  +--rw priority        uint8
+                 |  |  +--rw te-bandwidth
+                 |  |     +--rw (technology)?
+                 |  |        +--:(generic)
+                 |  |           +--rw generic?   te-bandwidth
+                 |  +--rw label-restrictions
+                 |     +--rw label-restriction* [index]
+                 |        +--rw restriction?    enumeration
+                 |        +--rw index           uint32
+                 |        +--rw label-start
+                 |        |  +--rw te-label
+                 |        |     +--rw (technology)?
+                 |        |     |  +--:(generic)
+                 |        |     |     +--rw generic?   rt-types:generalized-label
+                 |        |     +--rw direction?       te-label-direction
+                 |        +--rw label-end
+                 |        |  +--rw te-label
+                 |        |     +--rw (technology)?
+                 |        |     |  +--:(generic)
+                 |        |     |     +--rw generic?   rt-types:generalized-label
+                 |        |     +--rw direction?       te-label-direction
+                 |        +--rw label-step
+                 |        |  +--rw (technology)?
+                 |        |     +--:(generic)
+                 |        |        +--rw generic?   int32
+                 |        +--rw range-bitmap?   yang:hex-string
+                 +--ro optical-imp-topo:OMS-attributes
+                    +--ro optical-imp-topo:generalized-snr?                        decimal64
+                    +--ro optical-imp-topo:equalization-mode                       identityref
+                    +--ro (optical-imp-topo:power-param)?
+                    |  +--:(optical-imp-topo:channel-power)
+                    |  |  +--ro optical-imp-topo:nominal-channel-power?            decimal64
+                    |  +--:(optical-imp-topo:power-spectral-density)
+                    |     +--ro optical-imp-topo:nominal-power-spectral-density?   decimal64
+                    +--ro optical-imp-topo:media-channel-group* [i]
+                    |  +--ro optical-imp-topo:i                 int16
+                    |  +--ro optical-imp-topo:media-channels* [flexi-n]
+                    |     +--ro optical-imp-topo:flexi-n      int16
+                    |     +--ro optical-imp-topo:flexi-m?     uint16
+                    |     +--ro optical-imp-topo:OTSiG-ref?   -> /nw:networks/network/node/te/tunnel-termination-point/OTSiG-element/OTSiG-identifier
+                    |     +--ro optical-imp-topo:OTSi-ref?    -> /nw:networks/network/node/te/tunnel-termination-point/OTSiG-element[OTSiG-identifier=current()/../OTSiG-ref]/OTSiG-container/OTSi/OTSi-carrier-id
+                    +--ro optical-imp-topo:OMS-elements* [elt-index]
+                       +--ro optical-imp-topo:elt-index    uint16
+                       +--ro optical-imp-topo:uid?         string
+                       +--ro optical-imp-topo:type         identityref
+                       +--ro optical-imp-topo:element
+                          +--ro (optical-imp-topo:element)?
+                             +--:(optical-imp-topo:amplifier)
+                             |  +--ro optical-imp-topo:amplifier
+                             |     +--ro optical-imp-topo:type-variety    string
+                             |     +--ro optical-imp-topo:operational
+                             |        +--ro optical-imp-topo:actual-gain                             decimal64
+                             |        +--ro optical-imp-topo:tilt-target                             decimal64
+                             |        +--ro optical-imp-topo:out-voa                                 decimal64
+                             |        +--ro optical-imp-topo:in-voa                                  decimal64
+                             |        +--ro (optical-imp-topo:power-param)?
+                             |           +--:(optical-imp-topo:channel-power)
+                             |           |  +--ro optical-imp-topo:nominal-channel-power?            decimal64
+                             |           +--:(optical-imp-topo:power-spectral-density)
+                             |              +--ro optical-imp-topo:nominal-power-spectral-density?   decimal64
+                             +--:(optical-imp-topo:fiber)
+                             |  +--ro optical-imp-topo:fiber
+                             |     +--ro optical-imp-topo:type-variety    string
+                             |     +--ro optical-imp-topo:length          decimal64
+                             |     +--ro optical-imp-topo:loss-coef       decimal64
+                             |     +--ro optical-imp-topo:total-loss      decimal64
+                             |     +--ro optical-imp-topo:pmd?            decimal64
+                             |     +--ro optical-imp-topo:conn-in?        decimal64
+                             |     +--ro optical-imp-topo:conn-out?       decimal64
+                             +--:(optical-imp-topo:concentratedloss)
+                                +--ro optical-imp-topo:concentratedloss
+                                   +--ro optical-imp-topo:loss?   decimal64

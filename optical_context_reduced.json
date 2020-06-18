@@ -1,0 +1,339 @@
+{
+  "@xmlns": "urn:ietf:params:xml:ns:netconf:base:1.0",
+  "networks": {
+    "@xmlns": "urn:ietf:params:xml:ns:yang:gnpy-ietf-network",
+    "network": {
+      "network-id": null,
+      "network-types": {
+        "te-topology": {
+          "optical-impairment-topology": {
+            "@xmlns": "urn:ietf:params:xml:ns:yang:gnpy-ietf-optical-impairment-topology"
+          }
+        }
+      },
+      "node": {
+        "node-id": null,
+        "termination-point": {
+          "tp-id": null,
+          "te-tp-id": null,
+          "te": {
+            "name": null,
+            "interface-switching-capability": {
+              "switching-capability": null,
+              "encoding": null,
+              "max-lsp-bandwidth": {
+                "priority": null,
+                "te-bandwidth": {
+                  "generic": null
+                }
+              },
+              "label-restrictions": {
+                "label-restriction": {
+                  "index": null,
+                  "restriction": "inclusive",
+                  "label-start": {
+                    "te-label": {
+                      "generic": null,
+                      "direction": "forward"
+                    }
+                  },
+                  "label-end": {
+                    "te-label": {
+                      "generic": null,
+                      "direction": "forward"
+                    }
+                  },
+                  "label-step": {
+                    "generic": "1"
+                  },
+                  "range-bitmap": null
+                }
+              }
+            }
+          }
+        },
+        "te-node-id": null,
+        "te": {
+          "te-node-attributes": {
+            "connectivity-matrices": {
+              "connectivity-matrix": {
+                "id": null,
+                "from": {
+                  "tp-ref": null,
+                  "label-restrictions": {
+                    "label-restriction": {
+                      "index": null,
+                      "restriction": "inclusive",
+                      "label-start": {
+                        "te-label": {
+                          "generic": null,
+                          "direction": "forward"
+                        }
+                      },
+                      "label-end": {
+                        "te-label": {
+                          "generic": null,
+                          "direction": "forward"
+                        }
+                      },
+                      "label-step": {
+                        "generic": "1"
+                      },
+                      "range-bitmap": null
+                    }
+                  }
+                },
+                "to": {
+                  "tp-ref": null,
+                  "label-restrictions": {
+                    "label-restriction": {
+                      "index": null,
+                      "restriction": "inclusive",
+                      "label-start": {
+                        "te-label": {
+                          "generic": null,
+                          "direction": "forward"
+                        }
+                      },
+                      "label-end": {
+                        "te-label": {
+                          "generic": null,
+                          "direction": "forward"
+                        }
+                      },
+                      "label-step": {
+                        "generic": "1"
+                      },
+                      "range-bitmap": null
+                    }
+                  }
+                },
+                "roadm-path-impairments": {
+                  "@xmlns": "urn:ietf:params:xml:ns:yang:gnpy-ietf-optical-impairment-topology"
+                }
+              },
+              "roadm-path-impairments": {
+                "@xmlns": "urn:ietf:params:xml:ns:yang:gnpy-ietf-optical-impairment-topology"
+              }
+            },
+            "name": null,
+            "roadm-path-impairments": {
+              "@xmlns": "urn:ietf:params:xml:ns:yang:gnpy-ietf-optical-impairment-topology",
+              "roadm-path-impairments-id": null,
+              "roadm-express-path": {
+                "roadm-pmd": null,
+                "roadm-cd": null,
+                "roadm-pdl": null,
+                "roadm-inband-crosstalk": null,
+                "roadm-maxloss": null
+              },
+              "roadm-add-path": {
+                "roadm-pmd": null,
+                "roadm-cd": null,
+                "roadm-pdl": null,
+                "roadm-inband-crosstalk": null,
+                "roadm-maxloss": null,
+                "roadm-pmax": null,
+                "roadm-osnr": null,
+                "roadm-noise-figure": null
+              },
+              "roadm-drop-path": {
+                "roadm-pmd": null,
+                "roadm-cd": null,
+                "roadm-pdl": null,
+                "roadm-inband-crosstalk": null,
+                "roadm-maxloss": null,
+                "roadm-minloss": null,
+                "roadm-typloss": null,
+                "roadm-pmin": null,
+                "roadm-pmax": null,
+                "roadm-ptyp": null,
+                "roadm-osnr": null,
+                "roadm-noise-figure": null
+              }
+            }
+          },
+          "geolocation": {
+            "altitude": null,
+            "latitude": null,
+            "longitude": null
+          },
+          "tunnel-termination-point": {
+            "tunnel-tp-id": null,
+            "name": null,
+            "switching-capability": null,
+            "encoding": null,
+            "protection-type": null,
+            "local-link-connectivities": {
+              "local-link-connectivity": {
+                "link-tp-ref": null,
+                "label-restrictions": {
+                  "label-restriction": {
+                    "index": null,
+                    "restriction": "inclusive",
+                    "label-start": {
+                      "te-label": {
+                        "generic": null,
+                        "direction": "forward"
+                      }
+                    },
+                    "label-end": {
+                      "te-label": {
+                        "generic": null,
+                        "direction": "forward"
+                      }
+                    },
+                    "label-step": {
+                      "generic": "1"
+                    },
+                    "range-bitmap": null
+                  }
+                },
+                "add-path-impairments": {
+                  "@xmlns": "urn:ietf:params:xml:ns:yang:gnpy-ietf-optical-impairment-topology"
+                },
+                "drop-path-impairments": {
+                  "@xmlns": "urn:ietf:params:xml:ns:yang:gnpy-ietf-optical-impairment-topology"
+                }
+              },
+              "add-path-impairments": {
+                "@xmlns": "urn:ietf:params:xml:ns:yang:gnpy-ietf-optical-impairment-topology"
+              },
+              "drop-path-impairments": {
+                "@xmlns": "urn:ietf:params:xml:ns:yang:gnpy-ietf-optical-impairment-topology"
+              }
+            },
+            "OTSiG-element": {
+              "@xmlns": "urn:ietf:params:xml:ns:yang:gnpy-ietf-optical-impairment-topology",
+              "OTSiG-identifier": null,
+              "OTSiG-container": {
+                "OTSi": {
+                  "OTSi-carrier-id": null,
+                  "OTSi-carrier-frequency": null,
+                  "OTSi-signal-width": null,
+                  "channel-delta-power": null
+                }
+              }
+            },
+            "transponders-list": {
+              "@xmlns": "urn:ietf:params:xml:ns:yang:gnpy-ietf-optical-impairment-topology",
+              "transponder-id": null,
+              "standard-mode": null,
+              "operational-mode": null,
+              "organization-identifier": null,
+              "available-modulation-types": null,
+              "configured-modulation-type": null,
+              "available-baud-rates": null,
+              "configured-baud-rate": null,
+              "available-FEC-types": null,
+              "configured-FEC-type": null,
+              "FEC-code-rate": null,
+              "FEC-threshold": null,
+              "power": null,
+              "power-min": null,
+              "power-max": null
+            },
+            "transponder-list": {
+              "@xmlns": "urn:ietf:params:xml:ns:yang:gnpy-ietf-optical-impairment-topology",
+              "carrier-id": null
+            }
+          }
+        }
+      },
+      "link": {
+        "link-id": null,
+        "source": {
+          "source-node": null,
+          "source-tp": null
+        },
+        "destination": {
+          "dest-node": null,
+          "dest-tp": null
+        },
+        "te": {
+          "te-link-attributes": {
+            "name": null,
+            "interface-switching-capability": {
+              "switching-capability": null,
+              "encoding": null,
+              "max-lsp-bandwidth": {
+                "priority": null,
+                "te-bandwidth": {
+                  "generic": null
+                }
+              },
+              "label-restrictions": {
+                "label-restriction": {
+                  "index": null,
+                  "restriction": "inclusive",
+                  "label-start": {
+                    "te-label": {
+                      "generic": null,
+                      "direction": "forward"
+                    }
+                  },
+                  "label-end": {
+                    "te-label": {
+                      "generic": null,
+                      "direction": "forward"
+                    }
+                  },
+                  "label-step": {
+                    "generic": "1"
+                  },
+                  "range-bitmap": null
+                }
+              }
+            },
+            "OMS-attributes": {
+              "@xmlns": "urn:ietf:params:xml:ns:yang:gnpy-ietf-optical-impairment-topology",
+              "generalized-snr": null,
+              "equalization-mode": null,
+              "nominal-channel-power": null,
+              "nominal-power-spectral-density": null,
+              "media-channel-group": {
+                "i": null,
+                "media-channels": {
+                  "flexi-n": null,
+                  "flexi-m": null,
+                  "OTSiG-ref": null,
+                  "OTSi-ref": null
+                }
+              },
+              "OMS-elements": {
+                "elt-index": null,
+                "uid": null,
+                "type": null,
+                "element": {
+                  "amplifier": {
+                    "type-variety": null,
+                    "operational": {
+                      "actual-gain": null,
+                      "tilt-target": null,
+                      "out-voa": null,
+                      "in-voa": null,
+                      "nominal-channel-power": null,
+                      "nominal-power-spectral-density": null
+                    }
+                  },
+                  "fiber": {
+                    "type-variety": null,
+                    "length": null,
+                    "loss-coef": null,
+                    "total-loss": null,
+                    "pmd": null,
+                    "conn-in": null,
+                    "conn-out": null
+                  },
+                  "concentratedloss": {
+                    "loss": null
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
