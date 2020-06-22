@@ -1,0 +1,392 @@
+{
+  "@xmlns": "urn:ietf:params:xml:ns:netconf:base:1.0",
+  "networks": [{
+      "@xmlns": "urn:ietf:params:xml:ns:yang:gnpy-ietf-network",
+      "network": {
+        "network-id": "single-hop-example",
+        "network-types": {
+          "te-topology": {
+            "optical-impairment-topology": {
+              "@xmlns": "urn:ietf:params:xml:ns:yang:gnpy-ietf-optical-impairment-topology"
+            }
+          }
+        },
+        "node": [{
+            "node-id": "RoadmA",
+            "termination-point": [{
+                "tp-id": "portAtoB",
+                "te-tp-id": "12",
+                "te": {
+                  "name": "portAtoB in RoadmA",
+                  "interface-switching-capability": {
+                    "switching-capability": "switching-lsc",
+                    "encoding": "lsp-encoding-types",
+                    "max-lsp-bandwidth": {
+                      "te-bandwidth": {
+                        "generic": "-280,320"
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "tp-id": "portAfromB",
+                "te-tp-id": "21",
+                "te": {
+                  "name": "portAfromB in RoadmA",
+                  "interface-switching-capability": {
+                    "switching-capability": "switching-lsc",
+                    "encoding": "lsp-encoding-types",
+                    "max-lsp-bandwidth": {
+                      "te-bandwidth": {
+                        "generic": "-280,320"
+                      }
+                    }
+                  }
+                }
+              }
+            ],
+            "te-node-id": "10.10.10.1",
+            "te": {
+              "te-node-attributes": {
+                "roadm-path-impairments": [{
+                    "@xmlns": "urn:ietf:params:xml:ns:yang:gnpy-ietf-optical-impairment-topology",
+                    "roadm-path-impairments-id": 0,
+                    "roadm-express-path": {
+                      "roadm-pmd": 0,
+                      "roadm-cd": 0,
+                      "roadm-pdl": 0.5,
+                      "roadm-inband-crosstalk": -80,
+                      "roadm-maxloss": 20
+                    }
+                  },
+                  {
+                    "roadm-path-impairments-id": 1,
+                    "roadm-add-path": {
+                      "roadm-pmd": 0,
+                      "roadm-cd": 0,
+                      "roadm-pdl": 0,
+                      "roadm-inband-crosstalk": -80,
+                      "roadm-maxloss": 11.5,
+                      "roadm-pmax": 2.5,
+                      "roadm-osnr": 41,
+                      "roadm-noise-figure": 23
+                    }
+                  },
+                  {
+                    "roadm-path-impairments-id": 2,
+                    "roadm-drop-path": {
+                      "roadm-pmd": 0,
+                      "roadm-cd": 0,
+                      "roadm-pdl": 0,
+                      "roadm-inband-crosstalk": -80,
+                      "roadm-maxloss": 11.5,
+                      "roadm-minloss": 7.5,
+                      "roadm-typloss": 10,
+                      "roadm-pmin": -13.5,
+                      "roadm-pmax": -9.5,
+                      "roadm-ptyp": -12,
+                      "roadm-osnr": 41,
+                      "roadm-noise-figure": 15
+                    }
+                  }
+                ]
+              },
+              "tunnel-termination-point": [
+                {
+                  "tunnel-tp-id": 1001,
+                  "name": "localTransceiver",
+                  "local-link-connectivities": {
+                    "local-link-connectivity": {
+                      "link-tp-ref": "portAtoB"
+                    },
+                    "add-path-impairments": "1"
+                  },
+                  "transponders-list": {
+                    "@xmlns": "urn:ietf:params:xml:ns:yang:gnpy-ietf-optical-impairment-topology",
+                    "transponder-id": 1,
+                    "organization-identifier": "Voyager"
+                  }
+                },
+                {
+                  "tunnel-tp-id": 1002,
+                  "name": "localTransceiver",
+                  "local-link-connectivities": {
+                    "local-link-connectivity": {
+                      "link-tp-ref": "portAfromB"
+                    },
+                    "drop-path-impairments": "2"
+                  },
+                  "transponders-list": {
+                    "@xmlns": "urn:ietf:params:xml:ns:yang:gnpy-ietf-optical-impairment-topology",
+                    "transponder-id": 1,
+                    "organization-identifier": "Voyager"
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "node-id": "RoadmB",
+            "termination-point": [{
+                "tp-id": "portBtoA",
+                "te-tp-id": "21",
+                "te": {
+                  "name": "portBtoA in RoadmB",
+                  "interface-switching-capability": {
+                    "switching-capability": "switching-lsc",
+                    "encoding": "lsp-encoding-types",
+                    "max-lsp-bandwidth": {
+                      "te-bandwidth": {
+                        "generic": "-280,320"
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "tp-id": "portBfromA",
+                "te-tp-id": "12",
+                "te": {
+                  "name": "portBfromA in RoadmB",
+                  "interface-switching-capability": {
+                    "switching-capability": "switching-lsc",
+                    "encoding": "lsp-encoding-types",
+                    "max-lsp-bandwidth": {
+                      "te-bandwidth": {
+                        "generic": "-280,320"
+                      }
+                    }
+                  }
+                }
+              }
+            ],
+            "te-node-id": "10.10.10.2",
+            "te": {
+              "te-node-attributes": {
+                "roadm-path-impairments": [{
+                    "@xmlns": "urn:ietf:params:xml:ns:yang:gnpy-ietf-optical-impairment-topology",
+                    "roadm-path-impairments-id": 0,
+                    "roadm-express-path": {
+                      "roadm-pmd": 0,
+                      "roadm-cd": 0,
+                      "roadm-pdl": 0.5,
+                      "roadm-inband-crosstalk": -80,
+                      "roadm-maxloss": 20
+                    }
+                  },
+                  {
+                    "roadm-path-impairments-id": 1,
+                    "roadm-add-path": {
+                      "roadm-pmd": 0,
+                      "roadm-cd": 0,
+                      "roadm-pdl": 0,
+                      "roadm-inband-crosstalk": -80,
+                      "roadm-maxloss": 11.5,
+                      "roadm-pmax": 2.5,
+                      "roadm-osnr": 41,
+                      "roadm-noise-figure": 23
+                    }
+                  },
+                  {
+                    "roadm-path-impairments-id": 2,
+                    "roadm-drop-path": {
+                      "roadm-pmd": 0,
+                      "roadm-cd": 0,
+                      "roadm-pdl": 0,
+                      "roadm-inband-crosstalk": -80,
+                      "roadm-maxloss": 11.5,
+                      "roadm-minloss": 7.5,
+                      "roadm-typloss": 10,
+                      "roadm-pmin": -13.5,
+                      "roadm-pmax": -9.5,
+                      "roadm-ptyp": -12,
+                      "roadm-osnr": 41,
+                      "roadm-noise-figure": 15
+                    }
+                  }
+                ]
+              },
+              "tunnel-termination-point": [
+                {
+                  "tunnel-tp-id": 2001,
+                  "name": "localTransceiver",
+                  "local-link-connectivities": {
+                    "local-link-connectivity": {
+                      "link-tp-ref": "portBtoA"
+                    },
+                    "add-path-impairments": "1"
+                  },
+                  "transponders-list": {
+                    "@xmlns": "urn:ietf:params:xml:ns:yang:gnpy-ietf-optical-impairment-topology",
+                    "transponder-id": 1,
+                    "organization-identifier": "Voyager"
+                  }
+                },
+                {
+                  "tunnel-tp-id": 2002,
+                  "name": "localTransceiver",
+                  "local-link-connectivities": {
+                    "local-link-connectivity": {
+                      "link-tp-ref": "portBfromA"
+                    },
+                    "drop-path-impairments": "2"
+                  },
+                  "transponders-list": {
+                    "@xmlns": "urn:ietf:params:xml:ns:yang:gnpy-ietf-optical-impairment-topology",
+                    "transponder-id": 1,
+                    "organization-identifier": "Voyager"
+                  }
+                }
+              ]
+            }
+          }
+        ],
+        "link": [{
+            "link-id": 12,
+            "source": {
+              "source-node": "RoadmA",
+              "source-tp": 12
+              },
+            "destination": {
+              "dest-node": "RoadmB",
+              "dest-tp": 12
+              },
+            "te": {
+              "te-link-attributes": {
+                "name": "RoadmA-to-RoadmB",
+                "OMS-attributes": {
+                  "@xmlns": "urn:ietf:params:xml:ns:yang:gnpy-ietf-optical-impairment-topology",
+                  "equalization-mode": "channel-power",
+                  "nominal-channel-power": 0,
+                  "OMS-elements":[ 
+                    {
+                      "elt-index": 0,
+                      "uid": "booster_in_RoadmA_to_RoadmB",
+                      "type": "Edfa",
+                      "element": {
+                        "amplifier": {
+                          "type-variety": "std_medium_gain",
+                          "operational": {
+                            "actual-gain": 16,
+                            "tilt-target": 0,
+                            "out-voa": 0,
+                            "in-voa": null,
+                            "nominal-channel-power": -4
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "elt-index": 1,
+                      "uid": "Fiber_RoadmA_to_RoadmB",
+                      "type": "Fiber",
+                      "element": {
+                          "fiber": {
+                          "type-variety": "SMF",
+                          "length": 71,
+                          "loss-coef": 0.23,
+                          "total-loss": 16.83,
+                          "pmd": 0,
+                          "conn-in": 0.2,
+                          "conn-out": 0.3
+                        }
+                      }
+                    },
+                    {
+                      "elt-index": 2,
+                      "uid": "preamp_in_RoadmB_from_RoadmA",
+                      "type": "Edfa",
+                      "element": {
+                        "amplifier": {
+                          "type-variety": "std_medium_gain",
+                          "operational": {
+                            "actual-gain": 20,
+                            "tilt-target": 0,
+                            "out-voa": 0,
+                            "in-voa": null,
+                            "nominal-channel-power": 1                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "link-id": 21,
+            "source": {
+              "source-node": "RoadmB",
+              "source-tp": 21
+              },
+            "destination": {
+              "dest-node": "RoadmA",
+              "dest-tp": 21
+              },
+            "te": {
+              "te-link-attributes": {
+                "name": "RoadmB-to-RoadmA",
+                "OMS-attributes": {
+                  "@xmlns": "urn:ietf:params:xml:ns:yang:gnpy-ietf-optical-impairment-topology",
+                  "equalization-mode": "channel-power",
+                  "nominal-channel-power": 0,
+                  "OMS-elements":[ 
+                    {
+                      "elt-index": 0,
+                      "uid": "booster_in_RoadmB_to_RoadmA",
+                      "type": "Edfa",
+                      "element": {
+                        "amplifier": {
+                          "type-variety": "std_medium_gain",
+                          "operational": {
+                            "actual-gain": 20,
+                            "tilt-target": 0,
+                            "out-voa": 0,
+                            "in-voa": null,
+                            "nominal-channel-power": 0                          }
+                        }
+                      }
+                    },
+                    {
+                      "elt-index": 1,
+                      "uid": "Fiber_RoadmB_to_RoadmA",
+                      "type": "Fiber",
+                      "element": {
+                          "fiber": {
+                          "type-variety": "SMF",
+                          "length": 71,
+                          "loss-coef": 0.23,
+                          "total-loss": 16.83,
+                          "pmd": 0,
+                          "conn-in": 0.2,
+                          "conn-out": 0.3
+                        }
+                      }
+                    },
+                    {
+                      "elt-index": 2,
+                      "uid": "preamp_in_RoadmA_from_RoadmB",
+                      "type": "Edfa",
+                      "element": {
+                        "amplifier": {
+                          "type-variety": "std_medium_gain",
+                          "operational": {
+                            "actual-gain": 20,
+                            "tilt-target": 0,
+                            "out-voa": 0,
+                            "in-voa": null,
+                            "nominal-channel-power": 1                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
